@@ -160,10 +160,52 @@ export const LandIntelligenceView: React.FC<LandIntelligenceViewProps> = ({ onSe
           <div className="space-y-2 p-3 bg-slate-50 border border-slate-200 rounded-2xl">
             <div className="flex items-center space-x-1 text-xs font-bold text-slate-700">
               <Filter className="w-3.5 h-3.5 text-blue-700" />
-              <span>Map Filters</span>
+              <span>Map & Spatial Filters</span>
             </div>
 
             <div className="grid grid-cols-2 gap-2 text-xs">
+              <div>
+                <label className="block text-[9px] font-bold text-slate-400 uppercase mb-0.5">State</label>
+                <select
+                  value={selectedState}
+                  onChange={(e) => {
+                    setSelectedState(e.target.value);
+                    setSelectedDistrict('All');
+                  }}
+                  className="w-full p-1.5 bg-white border border-slate-200 rounded-lg text-xs font-semibold"
+                >
+                  {['All', ...Array.from(new Set(parcels.map((p) => p.state)))].map((st) => (
+                    <option key={st} value={st}>
+                      {st === 'All' ? 'All States' : st}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-[9px] font-bold text-slate-400 uppercase mb-0.5">District</label>
+                <select
+                  value={selectedDistrict}
+                  onChange={(e) => setSelectedDistrict(e.target.value)}
+                  className="w-full p-1.5 bg-white border border-slate-200 rounded-lg text-xs font-semibold"
+                >
+                  {[
+                    'All',
+                    ...Array.from(
+                      new Set(
+                        parcels
+                          .filter((p) => selectedState === 'All' || p.state === selectedState)
+                          .map((p) => p.district)
+                      )
+                    ),
+                  ].map((dist) => (
+                    <option key={dist} value={dist}>
+                      {dist === 'All' ? 'All Districts' : dist}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
               <div>
                 <label className="block text-[9px] font-bold text-slate-400 uppercase mb-0.5">Usability</label>
                 <select

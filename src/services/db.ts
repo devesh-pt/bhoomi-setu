@@ -195,7 +195,9 @@ export class BhoomiDatabaseService {
     );
 
     // Village level aggregation check
-    const villageMatches = parcels.filter((p) => p.village.toLowerCase() === q);
+    const villageMatches = parcels.filter(
+      (p) => p.village.toLowerCase().includes(q) || q.includes(p.village.toLowerCase())
+    );
     let villageSummary: VillageSearchResult | undefined = undefined;
 
     if (villageMatches.length > 0) {
