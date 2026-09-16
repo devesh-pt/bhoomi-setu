@@ -10,6 +10,8 @@ export const ProfileView: React.FC = () => {
   const savedDocs = MOCK_RESEARCH.filter((r) => user?.savedResearchIds?.includes(r.id));
 
   const roleOptions: { role: UserRole; label: string; desc: string }[] = [
+    { role: 'admin', label: 'Admin / Authorized Officer', desc: 'Full admin access: add/edit land records, verify parcels, legal updates, audit logs.' },
+    { role: 'user', label: 'Registered User', desc: 'Normal user portal: land search, parcel details, map view, AI assistant.' },
     { role: 'official', label: 'Government Official', desc: 'Full project monitoring, GIS, predictive analytics access.' },
     { role: 'researcher', label: 'Researcher', desc: 'Research hub, AI document summarizer, policy datasets.' },
     { role: 'institution', label: 'Institution', desc: 'Policy lab scenario workbench & comparative evaluations.' },
