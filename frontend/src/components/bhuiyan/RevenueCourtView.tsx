@@ -66,7 +66,7 @@ export const RevenueCourtView: React.FC<RevenueCourtViewProps> = ({ onNavigate, 
   };
 
   return (
-    <div className="p-6 bg-slate-950 text-slate-100 min-h-[calc(100vh-4rem)] space-y-6 overflow-y-auto">
+    <div className="p-6 bg-slate-950 text-slate-100 min-h-[calc(100dvh-4rem)] space-y-6 overflow-y-auto">
       {/* Header */}
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
         <div>

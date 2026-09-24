@@ -370,7 +370,7 @@ export const api = {
       a.download = 'BhoomiSetu_Compensation_Sheet.xlsx';
       a.click();
     } catch {
-      alert('Demo Mode: Exported BhoomiSetu_Compensation_Sheet.csv');
+      console.log('Demo Mode: Exported BhoomiSetu_Compensation_Sheet.csv');
     }
   },
 
@@ -467,7 +467,7 @@ export const api = {
       a.download = `BhoomiSetu_Parcel_${khasraNo}.pdf`;
       a.click();
     } catch {
-      alert(`Downloaded Demo Record for Khasra ${khasraNo}`);
+      console.log(`Downloaded Demo Record for Khasra ${khasraNo}`);
     }
   },
 
@@ -518,7 +518,7 @@ export const api = {
       a.download = `BhoomiSetu_MapReport_Khasra_${khasraNo}.pdf`;
       a.click();
     } catch {
-      alert(`Downloaded Demo Map Report for Khasra ${khasraNo}`);
+      console.log(`Downloaded Demo Map Report for Khasra ${khasraNo}`);
     }
   }
 };

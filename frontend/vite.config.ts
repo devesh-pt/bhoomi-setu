@@ -4,9 +4,9 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: process.env.VITE_BASE_URL || process.env.BASE_URL || './',
+  base: process.env.VITE_BASE_URL || process.env.BASE_URL || '/bhumisetu/',
   build: {
-    target: ['es2020', 'safari15'],
+    target: ['es2020', 'safari15', 'chrome90'],
     outDir: 'dist',
     emptyOutDir: true
   },

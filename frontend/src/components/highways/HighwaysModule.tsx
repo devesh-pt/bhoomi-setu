@@ -67,7 +67,7 @@ export const HighwaysModule: React.FC = () => {
   };
 
   return (
-    <div className="p-6 bg-slate-950 text-slate-100 min-h-[calc(100vh-4rem)] space-y-6 overflow-y-auto">
+    <div className="p-6 bg-slate-950 text-slate-100 min-h-[calc(100dvh-4rem)] space-y-6 overflow-y-auto">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-xl">
         <div className="flex items-center gap-3">

@@ -389,7 +389,7 @@ export const LandMapModule: React.FC = () => {
   const safeForestAreas = useMemo(() => normalizeForestAreas(forestAreas), [forestAreas]);
 
   return (
-    <div className="relative w-full h-[calc(100vh-4rem)] bg-slate-950 overflow-hidden flex flex-col select-none">
+    <div className="relative w-full h-[calc(100dvh-4rem)] bg-slate-950 overflow-hidden flex flex-col select-none">
       
       {/* Zoom / Tap Notification Toast */}
       {toastMessage && (
