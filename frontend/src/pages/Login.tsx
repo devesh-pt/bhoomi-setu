@@ -70,10 +70,9 @@ export const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
         <div className="relative z-10 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img
-              src="/logo.png"
-              onError={(e) => { (e.target as HTMLImageElement).src = '/logo.svg'; }}
+              src={`${import.meta.env.BASE_URL}logo.svg`}
               alt="Bhoomi Setu Logo"
-              className="w-10 h-10 rounded-xl object-cover shadow-xl border border-emerald-500/40"
+              className="w-10 h-10 rounded-xl object-contain bg-slate-900 p-1 shadow-xl border border-emerald-500/40"
             />
             <span className="font-black text-lg tracking-tight text-white">BHOOMI SETU</span>
           </div>
@@ -139,10 +138,9 @@ export const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
           {/* Glass Header */}
           <div className="text-center space-y-2">
             <img
-              src="/logo.png"
-              onError={(e) => { (e.target as HTMLImageElement).src = '/logo.svg'; }}
+              src={`${import.meta.env.BASE_URL}logo.svg`}
               alt="Bhoomi Setu Logo"
-              className="w-16 h-16 rounded-2xl object-cover shadow-2xl border-2 border-emerald-500/40 mx-auto mb-2"
+              className="w-16 h-16 rounded-2xl object-contain bg-slate-900 p-2 shadow-2xl border-2 border-emerald-500/40 mx-auto mb-2"
             />
             <h2 className="text-2xl font-black tracking-tight text-white">
               Sign In to BHOOMI SETU
