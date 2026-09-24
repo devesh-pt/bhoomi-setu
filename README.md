@@ -1,8 +1,8 @@
 # 🌿 BHOOMI SETU (भूमि सेतु)
 ### National Digital Land Intelligence, Evidence-Based Infrastructure Acquisition & Forest Monitoring Platform
 
-**Live Serverless Demo**: [https://devesh-pt.github.io/bhumisetu/](https://devesh-pt.github.io/bhumisetu/)  
-**GitHub Repository**: [https://github.com/devesh-pt/bhumisetu](https://github.com/devesh-pt/bhumisetu)
+**Live Serverless Demo**: [https://devesh-pt.github.io/bhumisetu/](https://devesh-pt.github.io/bhumi-setu/)  
+**GitHub Repository**: [https://github.com/devesh-pt/bhumisetu](https://github.com/devesh-pt/bhumi-setu)
 
 [![CI/CD Pipeline](https://github.com/devesh-pt/bhumisetu/actions/workflows/ci.yml/badge.svg)](https://github.com/devesh-pt/bhumisetu/actions/workflows/ci.yml)
 [![GitHub Pages](https://github.com/devesh-pt/bhumisetu/actions/workflows/pages.yml/badge.svg)](https://devesh-pt.github.io/bhumisetu/)
