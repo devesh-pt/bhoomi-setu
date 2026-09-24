@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "name": "National Highway 30 (Raipur-Abhanpur-Dhamtari Corridor)",
+      "code": "NH-30",
+      "start_point": null,
+      "end_point": null,
+      "length_km": 120.0,
+      "district": null,
+      "geometry": null
+    },
+    {
+      "id": "2",
+      "name": "National Highway 53 (Durg-Bhilai-Raipur-Arang Link)",
+      "code": "NH-53",
+      "start_point": null,
+      "end_point": null,
+      "length_km": 120.0,
+      "district": null,
+      "geometry": null
+    },
+    {
+      "id": "3",
+      "name": "National Highway 130 (Raipur-Simga-Bilaspur Link)",
+      "code": "NH-130",
+      "start_point": null,
+      "end_point": null,
+      "length_km": 120.0,
+      "district": null,
+      "geometry": null
+    }
+  ]
+}

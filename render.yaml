@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: bhumisetu-platform
+    env: docker
+    plan: starter
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: DATABASE_URL
+        sync: false

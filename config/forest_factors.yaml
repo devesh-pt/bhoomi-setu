@@ -1,0 +1,31 @@
+# Forest Impact & Eco-Valuation Factors Configuration
+# Editable per-hectare factors for tree density and carbon stock estimation
+
+act_reference: "Van (Sanrakshan Evam Samvardhan) Adhiniyam, 1980 (formerly Forest Conservation Act, 1980) & PARIVESH Portal Sync [Legal verification recommended]"
+
+factors:
+  trees_per_hectare: 350.0          # Average tree density per ha in Moderately Dense Forest
+  carbon_stock_co2_tons_per_ha: 145.0  # Average carbon stock in CO2 equivalent tons per ha
+  net_present_value_per_ha_lakhs: 10.0 # Standard NPV rate under FCA guidelines
+
+reserve_type_factors:
+  National Park:
+    tree_density_multiplier: 1.4
+    carbon_multiplier: 1.5
+    eco_sensitivity: "CRITICAL"
+  Wildlife Sanctuary:
+    tree_density_multiplier: 1.2
+    carbon_multiplier: 1.3
+    eco_sensitivity: "HIGH"
+  Tiger Reserve:
+    tree_density_multiplier: 1.5
+    carbon_multiplier: 1.6
+    eco_sensitivity: "CRITICAL"
+  Reserved Forest:
+    tree_density_multiplier: 1.0
+    carbon_multiplier: 1.0
+    eco_sensitivity: "MEDIUM"
+  Protected Forest:
+    tree_density_multiplier: 0.8
+    carbon_multiplier: 0.8
+    eco_sensitivity: "MODERATE"

@@ -1,0 +1,74 @@
+{
+  "app_title": "BHUMISETU",
+  "app_subtitle": "National Land Intelligence & Highway Land Acquisition Platform",
+  "nav": {
+    "land_map": "Land Map",
+    "highways": "Highways & Routing",
+    "ai_detection": "AI Land & Muavja",
+    "forest_impact": "Forest Impact",
+    "logout": "Logout",
+    "language": "Hindi / हिंदी"
+  },
+  "login": {
+    "title": "Government Land Portal Login",
+    "username": "Username / User ID",
+    "password": "Password",
+    "show_password": "Show password",
+    "hide_password": "Hide password",
+    "login_button": "Sign In to BHUMISETU",
+    "demo_users": "Quick Demo Sign-In:",
+    "admin_role": "Admin Officer",
+    "officer_role": "Land Acquisition Officer",
+    "citizen_role": "Citizen / Landowner",
+    "lockout_error": "Account temporarily locked due to 5 failed attempts."
+  },
+  "land_map": {
+    "search_placeholder": "Search Khasra No., Owner Name, or Village...",
+    "layer_parcels": "Cadastral Parcels",
+    "layer_highways": "Highway Corridors",
+    "layer_forest": "Forest Canopy",
+    "demo_data_badge": "Demo Data",
+    "synthetic_notice": "Synthetic record mapped over public satellite geography."
+  },
+  "parcel_detail": {
+    "title": "Parcel Cadastral Details",
+    "khasra_no": "Khasra Number (खसरा संख्या)",
+    "owner_name": "Recorded Owner (भूस्वामी)",
+    "land_type": "Land Type (भूमि प्रकार)",
+    "land_size": "Land Area (क्षेत्रफल)",
+    "market_val": "Estimated Market Rate (बाजार दर)",
+    "case_status": "Litigation Status (न्यायालय प्रकरण)",
+    "ai_insight_title": "AI Dispute Risk Insight",
+    "disclaimer": "Advisory only — not legal advice; outcome depends on the court.",
+    "about_model": "About Model"
+  },
+  "highways": {
+    "title": "Highway Corridor & Banjar Alignment",
+    "select_corridor": "Select Highway Corridor",
+    "buffer_width": "Right-of-Way Buffer Width",
+    "calculate_impact": "Calculate Corridor Impact",
+    "fertile_vs_banjar": "Fertile Land vs. Banjar Jamin",
+    "suggest_route": "Suggest Banjar-Optimised Route",
+    "fertile_saved": "Fertile Farmland Saved",
+    "cost_reduction": "Estimated Cost Reduction"
+  },
+  "muavja": {
+    "title": "AI Land Detection & Muavja Estimation",
+    "ready_map": "Printable Ready-Map Export",
+    "export_excel": "Download Excel Compensation Sheet",
+    "export_geojson": "Export GeoJSON Geometry",
+    "export_pdf": "Download Printable PDF Ready-Map",
+    "total_compensation": "Total Estimated Muavja (मुआवजा)",
+    "solatium": "100% Solatium Amount (धारा 30)",
+    "assets_allowance": "Crop & Asset Allowance"
+  },
+  "forest": {
+    "title": "Forest Protection & Canopy Loss Analytics",
+    "current_cover": "Current Forest Canopy Cover",
+    "historical_loss": "Annual Tree Cover Loss (2019-2024)",
+    "clearance_warning": "CRITICAL: Forest Clearance Required",
+    "trees_affected": "Approximate Trees Affected",
+    "carbon_footprint": "Estimated Carbon Footprint",
+    "suggested_alt": "Suggested Low-Forest Impact Alternative Route"
+  }
+}

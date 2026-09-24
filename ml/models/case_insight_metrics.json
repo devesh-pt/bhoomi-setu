@@ -1,0 +1,31 @@
+{
+  "model_name": "LightGBM Land Dispute Likelihood Decision-Support Engine",
+  "accuracy": 0.985,
+  "feature_importances": [
+    {
+      "feature": "Case Age (Years)",
+      "importance": 0.2972
+    },
+    {
+      "feature": "Document Completeness (%)",
+      "importance": 0.2051
+    },
+    {
+      "feature": "Khasra Boundary Demarcation Dispute",
+      "importance": 0.1755
+    },
+    {
+      "feature": "Pending Heirship Mutation Challenge",
+      "importance": 0.1606
+    },
+    {
+      "feature": "Previous Court Order Disposed Flag",
+      "importance": 0.152
+    },
+    {
+      "feature": "Land Type Market Valuation",
+      "importance": 0.0095
+    }
+  ],
+  "disclaimer": "Advisory decision-support model only. Legal outcomes strictly depend on judicial proceedings."
+}

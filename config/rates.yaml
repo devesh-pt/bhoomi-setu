@@ -1,0 +1,68 @@
+# Single Unified Rate Table for BHUMISETU Platform
+# All modules (Khasra Extract Modal, Map Panel, Muavja Calculator, Forest Impact) load rates from this authoritative file.
+# Note: Same village + land type = same circle rate. Forest land is strictly valued lower than Irrigated/Rain-fed land.
+
+act_reference: "Right to Fair Compensation and Transparency in Land Acquisition, Rehabilitation and Resettlement Act, 2013"
+currency: "INR"
+
+# Standard Default Circle Rates per hectare (in INR Lakhs per Hectare)
+default_rates_per_ha:
+  IRRIGATED: 25.0       # Rs 2,500,000 / ha (25.0 Lakhs)
+  RAIN_FED: 16.0        # Rs 1,600,000 / ha (16.0 Lakhs)
+  BANJAR: 6.0           # Rs 600,000 / ha (6.0 Lakhs)
+  FOREST: 10.0          # Rs 1,000,000 / ha (10.0 Lakhs - strictly <= Irrigated/Rain-fed)
+  RESIDENTIAL: 55.0     # Rs 5,500,000 / ha (55.0 Lakhs)
+  COMMERCIAL: 85.0      # Rs 8,500,000 / ha (85.0 Lakhs)
+
+# Village-specific Circle Rates per hectare (in INR Lakhs per Hectare)
+village_rates_per_ha:
+  Semra:
+    IRRIGATED: 28.0
+    RAIN_FED: 18.0
+    BANJAR: 7.0
+    FOREST: 11.0
+    RESIDENTIAL: 60.0
+    COMMERCIAL: 90.0
+  Abhanpur:
+    IRRIGATED: 25.0
+    RAIN_FED: 16.0
+    BANJAR: 6.0
+    FOREST: 10.0
+    RESIDENTIAL: 55.0
+    COMMERCIAL: 85.0
+  Kurud:
+    IRRIGATED: 22.0
+    RAIN_FED: 14.0
+    BANJAR: 5.5
+    FOREST: 9.0
+    RESIDENTIAL: 48.0
+    COMMERCIAL: 75.0
+  Dhamtari:
+    IRRIGATED: 26.0
+    RAIN_FED: 17.0
+    BANJAR: 6.5
+    FOREST: 10.5
+    RESIDENTIAL: 58.0
+    COMMERCIAL: 88.0
+
+# Illustrative Multiplier Factors per Village (RFCTLARR Act Sec 26(2) Rural vs Urban)
+# Labeled as "illustrative - verify with state rules"
+village_multipliers:
+  Semra: 1.5
+  Abhanpur: 1.25
+  Kurud: 1.5
+  Dhamtari: 1.2
+  Bhilai: 1.0
+  Raipur: 1.0
+
+# Solatium Percentage (Section 30 of RFCTLARR Act 2013)
+solatium_percentage: 100.0
+
+# Fixed Asset & Tree Standard Allowances (in INR Lakhs per Hectare)
+asset_allowances_per_ha:
+  IRRIGATED: 2.5        # Tube well + standing crop + fencing
+  RAIN_FED: 1.2         # Standing crop + fencing
+  BANJAR: 0.2           # Boundary stone
+  FOREST: 3.0           # Timber valuation
+  RESIDENTIAL: 15.0     # Built structure allowance
+  COMMERCIAL: 30.0      # Industrial structure allowance

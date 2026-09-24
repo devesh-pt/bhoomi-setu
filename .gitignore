@@ -1,4 +1,67 @@
-node_modules
-dist
+# Node & Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+.eslintcache
+
+# Python & Backend
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+.anyio_page/
+
+# Environment & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Databases & Cache
+*.db
+*.sqlite
+*.sqlite3
+bhumisetu.db
+bhumisetu*.db
+
+# Screenshots & Local Test Artifacts
+*.png
+*.jpg
+*.jpeg
+audit_results.json
+artifacts_preview/
+
+# System & IDE
 .DS_Store
-*.log
+.AppleDouble
+.LSOverride
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

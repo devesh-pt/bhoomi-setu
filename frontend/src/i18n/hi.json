@@ -1,0 +1,74 @@
+{
+  "app_title": "भूमि सेतु (BHUMISETU)",
+  "app_subtitle": "राष्ट्रीय भू-खुफिया एवं राजमार्ग भूमि अधिग्रहण मंच",
+  "nav": {
+    "land_map": "भू-मानचित्र (Land Map)",
+    "highways": "राजमार्ग एवं मार्ग संरेखण",
+    "ai_detection": "एआई भू-अधिग्रहण व मुआवजा",
+    "forest_impact": "वन संरक्षण एवं प्रभाव",
+    "logout": "लॉग आउट",
+    "language": "English / अंग्रेजी"
+  },
+  "login": {
+    "title": "सरकारी भूमि पोर्टल में प्रवेश",
+    "username": "उपयोगकर्ता आईडी / फोन",
+    "password": "पासवर्ड",
+    "show_password": "पासवर्ड दिखाएं",
+    "hide_password": "पासवर्ड छिपाएं",
+    "login_button": "भूमि सेतु में लॉगिन करें",
+    "demo_users": "त्वरित डेमो लॉगिन:",
+    "admin_role": "प्रशासकीय अधिकारी",
+    "officer_role": "भूमि अधिग्रहण अधिकारी (LAO)",
+    "citizen_role": "नागरिक / भूस्वामी",
+    "lockout_error": "5 असफल प्रयासों के कारण खाता अस्थायी रूप से लॉक कर दिया गया है।"
+  },
+  "land_map": {
+    "search_placeholder": "खसरा नंबर, भूस्वामी या गांव खोजें...",
+    "layer_parcels": "भूखंड सीमाएं (Parcels)",
+    "layer_highways": "राजमार्ग गलियारा",
+    "layer_forest": "वन क्षेत्र (Forest)",
+    "demo_data_badge": "डेमो डेटा (Demo Data)",
+    "synthetic_notice": "उपग्रह मानचित्र पर प्रदर्शित काल्पनिक रिकॉर्ड।"
+  },
+  "parcel_detail": {
+    "title": "खसरा एवं भूखंड विवरण",
+    "khasra_no": "खसरा नंबर (Khasra No.)",
+    "owner_name": "दर्ज भूस्वामी (Recorded Owner)",
+    "land_type": "भूमि प्रकार (Land Type)",
+    "land_size": "क्षेत्रफल (Hectares / Acres / Bigha)",
+    "market_val": "बाजार दर (Market Rate per ha)",
+    "case_status": "न्यायालय विवाद स्थिति (Litigation Status)",
+    "ai_insight_title": "एआई विवाद जोखिम विश्लेषण (AI Insight)",
+    "disclaimer": "केवल परामर्श हेतु — यह विधिक सलाह नहीं है; अंतिम निर्णय अदालत पर निर्भर है।",
+    "about_model": "मॉडल विवरण"
+  },
+  "highways": {
+    "title": "राजमार्ग गलियारा एवं बंजर भूमि संरेखण",
+    "select_corridor": "राजमार्ग चुनें",
+    "buffer_width": "चौड़ाई बफर (Right-of-Way)",
+    "calculate_impact": "प्रभाव का आकलन करें",
+    "fertile_vs_banjar": "उपजाऊ कृषि भूमि बनाम बंजर जमीन (Banjar Jamin)",
+    "suggest_route": "बंजर भूमि अनुकूलित मार्ग का सुझाव दें",
+    "fertile_saved": "बचाई गई उपजाऊ कृषि भूमि",
+    "cost_reduction": "अनुमानित मुआवजा बचत"
+  },
+  "muavja": {
+    "title": "एआई भू-अधिग्रहण एवं मुआवजा आकलन",
+    "ready_map": "रेडी-मैप (Ready-Map) निर्यात",
+    "export_excel": "एक्सेल मुआवजा पत्रक डाउनलोड करें",
+    "export_geojson": "GeoJSON स्पैटियल डेटा निर्यात",
+    "export_pdf": "मुद्रण योग्य PDF रेडी-मैप डाउनलोड करें",
+    "total_compensation": "कुल अनुमानित मुआवजा (Muavja)",
+    "solatium": "100% तोषामद/सोलेशियम राशि (Section 30)",
+    "assets_allowance": "फसल एवं संपत्ति मुआवजा"
+  },
+  "forest": {
+    "title": "वन संरक्षण एवं वृक्ष आवरण नुकसान",
+    "current_cover": "वर्तमान वन आवरण",
+    "historical_loss": "वार्षिक वृक्ष आवरण हानि (2019-2024)",
+    "clearance_warning": "गंभीर: वन संरक्षण अधिनियम के तहत वन मंजूरी आवश्यक",
+    "trees_affected": "प्रभावित होने वाले संभावित पेड़",
+    "carbon_footprint": "अनुमानित कार्बन पदचिह्न",
+    "suggested_alt": "न्यूनतम वन प्रभाव वाला वैकल्पिक मार्ग"
+  }
+}

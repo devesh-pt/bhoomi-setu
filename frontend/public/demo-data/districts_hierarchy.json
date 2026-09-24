@@ -1,0 +1,499 @@
+{
+  "districts": {
+    "Raipur": {
+      "division": "Raipur",
+      "tehsils": {
+        "Raipur Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Raipur Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Baloda Bazar-Bhatapara": {
+      "division": "Raipur",
+      "tehsils": {
+        "Baloda Bazar-Bhatapara Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Baloda Bazar-Bhatapara Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Gariaband": {
+      "division": "Raipur",
+      "tehsils": {
+        "Gariaband Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Gariaband Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Mahasamund": {
+      "division": "Raipur",
+      "tehsils": {
+        "Mahasamund Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Mahasamund Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Dhamtari": {
+      "division": "Raipur",
+      "tehsils": {
+        "Dhamtari Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Dhamtari Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Durg": {
+      "division": "Durg",
+      "tehsils": {
+        "Durg Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Durg Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Balod": {
+      "division": "Durg",
+      "tehsils": {
+        "Balod Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Balod Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Bemetara": {
+      "division": "Durg",
+      "tehsils": {
+        "Bemetara Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Bemetara Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Rajnandgaon": {
+      "division": "Durg",
+      "tehsils": {
+        "Rajnandgaon Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Rajnandgaon Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Kabirdham": {
+      "division": "Durg",
+      "tehsils": {
+        "Kabirdham Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Kabirdham Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Khairagarh-Chhuikhadan-Gandai": {
+      "division": "Durg",
+      "tehsils": {
+        "Khairagarh-Chhuikhadan-Gandai Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Khairagarh-Chhuikhadan-Gandai Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Mohla-Manpur-Ambagarh Chowki": {
+      "division": "Durg",
+      "tehsils": {
+        "Mohla-Manpur-Ambagarh Chowki Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Mohla-Manpur-Ambagarh Chowki Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Bilaspur": {
+      "division": "Bilaspur",
+      "tehsils": {
+        "Bilaspur Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Bilaspur Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Mungeli": {
+      "division": "Bilaspur",
+      "tehsils": {
+        "Mungeli Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Mungeli Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Korba": {
+      "division": "Bilaspur",
+      "tehsils": {
+        "Korba Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Korba Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Janjgir-Champa": {
+      "division": "Bilaspur",
+      "tehsils": {
+        "Janjgir-Champa Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Janjgir-Champa Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Sakti": {
+      "division": "Bilaspur",
+      "tehsils": {
+        "Sakti Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Sakti Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Raigarh": {
+      "division": "Bilaspur",
+      "tehsils": {
+        "Raigarh Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Raigarh Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Sarangarh-Bilaigarh": {
+      "division": "Bilaspur",
+      "tehsils": {
+        "Sarangarh-Bilaigarh Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Sarangarh-Bilaigarh Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Gaurela-Pendra-Marwahi": {
+      "division": "Bilaspur",
+      "tehsils": {
+        "Gaurela-Pendra-Marwahi Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Gaurela-Pendra-Marwahi Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Bastar": {
+      "division": "Bastar",
+      "tehsils": {
+        "Bastar Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Bastar Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Kondagaon": {
+      "division": "Bastar",
+      "tehsils": {
+        "Kondagaon Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Kondagaon Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Kanker": {
+      "division": "Bastar",
+      "tehsils": {
+        "Kanker Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Kanker Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Narayanpur": {
+      "division": "Bastar",
+      "tehsils": {
+        "Narayanpur Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Narayanpur Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Dantewada": {
+      "division": "Bastar",
+      "tehsils": {
+        "Dantewada Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Dantewada Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Bijapur": {
+      "division": "Bastar",
+      "tehsils": {
+        "Bijapur Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Bijapur Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Sukma": {
+      "division": "Bastar",
+      "tehsils": {
+        "Sukma Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Sukma Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Surguja": {
+      "division": "Surguja",
+      "tehsils": {
+        "Surguja Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Surguja Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Surajpur": {
+      "division": "Surguja",
+      "tehsils": {
+        "Surajpur Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Surajpur Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Balrampur-Ramanujganj": {
+      "division": "Surguja",
+      "tehsils": {
+        "Balrampur-Ramanujganj Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Balrampur-Ramanujganj Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Jashpur": {
+      "division": "Surguja",
+      "tehsils": {
+        "Jashpur Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Jashpur Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Koriya": {
+      "division": "Surguja",
+      "tehsils": {
+        "Koriya Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Koriya Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    },
+    "Manendragarh-Chirmiri-Bharatpur": {
+      "division": "Surguja",
+      "tehsils": {
+        "Manendragarh-Chirmiri-Bharatpur Sadar": [
+          "Semra",
+          "Abhanpur",
+          "Bhanpuri"
+        ],
+        "Manendragarh-Chirmiri-Bharatpur Rural": [
+          "Kurud",
+          "Dhamtari",
+          "Patan"
+        ]
+      }
+    }
+  }
+}

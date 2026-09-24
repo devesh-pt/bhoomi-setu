@@ -1,0 +1,40 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.1,
+              22.65
+            ],
+            [
+              77.4,
+              22.65
+            ],
+            [
+              77.4,
+              22.85
+            ],
+            [
+              77.1,
+              22.85
+            ],
+            [
+              77.1,
+              22.65
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "district": "Sehore",
+        "state": "Madhya Pradesh",
+        "type": "Demo District Boundary"
+      }
+    }
+  ]
+}

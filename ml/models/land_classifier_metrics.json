@@ -1,0 +1,122 @@
+{
+  "model_name": "Sentinel-2 Multi-Spectral Land Cover Classifier",
+  "accuracy": 1.0,
+  "classes": [
+    "IRRIGATED",
+    "RAIN_FED",
+    "BANJAR",
+    "FOREST",
+    "RESIDENTIAL",
+    "COMMERCIAL"
+  ],
+  "classification_report": {
+    "BANJAR": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 113.0
+    },
+    "COMMERCIAL": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 15.0
+    },
+    "FOREST": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 69.0
+    },
+    "IRRIGATED": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 218.0
+    },
+    "RAIN_FED": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 154.0
+    },
+    "RESIDENTIAL": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 31.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 600.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 600.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      218,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      154,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      113,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      69,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      31,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      15
+    ]
+  ],
+  "feature_names": [
+    "B02_Blue",
+    "B03_Green",
+    "B04_Red",
+    "B08_NIR",
+    "NDVI",
+    "NDWI",
+    "Slope_Deg"
+  ]
+}

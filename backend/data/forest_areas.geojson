@@ -1,0 +1,743 @@
+{
+  "type": "FeatureCollection",
+  "name": "Chhattisgarh_Forest_Areas_Demo",
+  "data_source": "Demo data",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-001",
+        "name": "Indravati National Park",
+        "name_hi": "इंद्रावती राष्ट्रीय उद्यान",
+        "type": "National Park",
+        "district": "Bijapur",
+        "area_km2": 1258.4,
+        "canopy_density": "Very Dense",
+        "main_species": "Sal, Teak, Saja, Bamboo, Tendu, Mahua",
+        "wildlife": "Wild Buffalo (State Animal), Tiger, Leopard, Sloth Bear, Gaur, Barking Deer",
+        "elephant_corridor": true,
+        "eco_sensitive_buffer_km": 10.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 245,
+        "estimated_tree_count": 850000,
+        "carbon_stock_estimate_tons": 425000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 24.5},
+          {"year": 2017, "loss_ha": 21.0},
+          {"year": 2018, "loss_ha": 19.2},
+          {"year": 2019, "loss_ha": 65.4},
+          {"year": 2020, "loss_ha": 48.0},
+          {"year": 2021, "loss_ha": 31.2},
+          {"year": 2022, "loss_ha": 28.5},
+          {"year": 2023, "loss_ha": 72.8},
+          {"year": 2024, "loss_ha": 34.0},
+          {"year": 2025, "loss_ha": 29.1}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [80.6500, 18.7000],
+            [81.0500, 18.7000],
+            [81.0500, 19.1000],
+            [80.6500, 19.1000],
+            [80.6500, 18.7000]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-002",
+        "name": "Kanger Ghati National Park",
+        "name_hi": "कांगेर घाटी राष्ट्रीय उद्यान",
+        "type": "National Park",
+        "district": "Bastar",
+        "area_km2": 200.0,
+        "canopy_density": "Very Dense",
+        "main_species": "Sal, Teak, Teosinte, Bamboo, Harra, Bahera",
+        "wildlife": "Bastar Hill Myna (State Bird), Tiger, Leopard, Flying Squirrel, Chital, Python",
+        "elephant_corridor": false,
+        "eco_sensitive_buffer_km": 5.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 88,
+        "estimated_tree_count": 320000,
+        "carbon_stock_estimate_tons": 195000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 8.2},
+          {"year": 2017, "loss_ha": 9.1},
+          {"year": 2018, "loss_ha": 7.5},
+          {"year": 2019, "loss_ha": 18.4},
+          {"year": 2020, "loss_ha": 14.2},
+          {"year": 2021, "loss_ha": 11.0},
+          {"year": 2022, "loss_ha": 9.8},
+          {"year": 2023, "loss_ha": 26.5},
+          {"year": 2024, "loss_ha": 12.3},
+          {"year": 2025, "loss_ha": 10.1}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [81.8500, 18.7500],
+            [82.1500, 18.7500],
+            [82.1500, 19.0000],
+            [81.8500, 19.0000],
+            [81.8500, 18.7500]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-003",
+        "name": "Guru Ghasidas National Park",
+        "name_hi": "गुरु घासीदास राष्ट्रीय उद्यान",
+        "type": "National Park",
+        "district": "Koriya",
+        "area_km2": 1440.7,
+        "canopy_density": "Moderately Dense",
+        "main_species": "Sal, Saja, Bijasal, Khair, Dhawda, Tendu",
+        "wildlife": "Cheetah (Reintroduction Zone), Tiger, Leopard, Sloth Bear, Sambhar, Chinkara",
+        "elephant_corridor": true,
+        "eco_sensitive_buffer_km": 10.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 312,
+        "estimated_tree_count": 920000,
+        "carbon_stock_estimate_tons": 510000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 32.0},
+          {"year": 2017, "loss_ha": 28.4},
+          {"year": 2018, "loss_ha": 25.1},
+          {"year": 2019, "loss_ha": 88.5},
+          {"year": 2020, "loss_ha": 62.0},
+          {"year": 2021, "loss_ha": 41.3},
+          {"year": 2022, "loss_ha": 38.9},
+          {"year": 2023, "loss_ha": 105.2},
+          {"year": 2024, "loss_ha": 49.0},
+          {"year": 2025, "loss_ha": 42.1}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [81.9000, 23.4500],
+            [82.5000, 23.4500],
+            [82.5000, 23.8500],
+            [81.9000, 23.8500],
+            [81.9000, 23.4500]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-004",
+        "name": "Achanakmar Tiger Reserve",
+        "name_hi": "अचानकमार टाइगर रिजर्व",
+        "type": "Tiger Reserve",
+        "district": "Mungeli",
+        "area_km2": 914.0,
+        "canopy_density": "Very Dense",
+        "main_species": "Sal, Bamboo, Saja, Bija, Haldu, Tendu",
+        "wildlife": "Bengal Tiger, Indian Leopard, Gaur, Wild Dog (Dhole), Sloth Bear, Chital",
+        "elephant_corridor": true,
+        "eco_sensitive_buffer_km": 10.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 175,
+        "estimated_tree_count": 780000,
+        "carbon_stock_estimate_tons": 390000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 15.4},
+          {"year": 2017, "loss_ha": 14.1},
+          {"year": 2018, "loss_ha": 12.8},
+          {"year": 2019, "loss_ha": 45.2},
+          {"year": 2020, "loss_ha": 31.0},
+          {"year": 2021, "loss_ha": 21.5},
+          {"year": 2022, "loss_ha": 19.4},
+          {"year": 2023, "loss_ha": 52.8},
+          {"year": 2024, "loss_ha": 24.1},
+          {"year": 2025, "loss_ha": 20.3}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [81.5500, 22.3000],
+            [81.9500, 22.3000],
+            [81.9500, 22.7000],
+            [81.5500, 22.7000],
+            [81.5500, 22.3000]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-005",
+        "name": "Udanti-Sitanadi Tiger Reserve",
+        "name_hi": "उदंती-सीतानदी टाइगर रिजर्व",
+        "type": "Tiger Reserve",
+        "district": "Gariaband",
+        "area_km2": 1842.5,
+        "canopy_density": "Very Dense",
+        "main_species": "Teak, Sal, Bamboo, Mahua, Tendu, Semal",
+        "wildlife": "Wild Buffalo, Tiger, Leopard, Mouse Deer, Four-horned Antelope, Cobra",
+        "elephant_corridor": true,
+        "eco_sensitive_buffer_km": 10.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 298,
+        "estimated_tree_count": 1100000,
+        "carbon_stock_estimate_tons": 580000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 28.1},
+          {"year": 2017, "loss_ha": 24.5},
+          {"year": 2018, "loss_ha": 22.0},
+          {"year": 2019, "loss_ha": 78.4},
+          {"year": 2020, "loss_ha": 54.2},
+          {"year": 2021, "loss_ha": 36.8},
+          {"year": 2022, "loss_ha": 32.1},
+          {"year": 2023, "loss_ha": 89.0},
+          {"year": 2024, "loss_ha": 41.5},
+          {"year": 2025, "loss_ha": 35.2}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [81.9500, 20.0500],
+            [82.5000, 20.0500],
+            [82.5000, 20.4500],
+            [81.9500, 20.4500],
+            [81.9500, 20.0500]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-006",
+        "name": "Barnawapara Wildlife Sanctuary",
+        "name_hi": "बारनवापारा वन्यजीव अभयारण्य",
+        "type": "Wildlife Sanctuary",
+        "district": "Mahasamund",
+        "area_km2": 245.0,
+        "canopy_density": "Moderately Dense",
+        "main_species": "Teak, Sal, Bamboo, Ber, Jamun, Semal",
+        "wildlife": "Wild Elephant Herd, Leopard, Gaur, Sloth Bear, Nilgai, Wild Boar",
+        "elephant_corridor": true,
+        "eco_sensitive_buffer_km": 5.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 64,
+        "estimated_tree_count": 310000,
+        "carbon_stock_estimate_tons": 160000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 12.0},
+          {"year": 2017, "loss_ha": 10.5},
+          {"year": 2018, "loss_ha": 9.1},
+          {"year": 2019, "loss_ha": 31.4},
+          {"year": 2020, "loss_ha": 22.0},
+          {"year": 2021, "loss_ha": 14.8},
+          {"year": 2022, "loss_ha": 13.2},
+          {"year": 2023, "loss_ha": 38.5},
+          {"year": 2024, "loss_ha": 17.0},
+          {"year": 2025, "loss_ha": 14.5}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [82.2000, 21.2500],
+            [82.5500, 21.2500],
+            [82.5500, 21.5500],
+            [82.2000, 21.5500],
+            [82.2000, 21.2500]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-007",
+        "name": "Gomarda Wildlife Sanctuary",
+        "name_hi": "गोमर्डा वन्यजीव अभयारण्य",
+        "type": "Wildlife Sanctuary",
+        "district": "Raigarh",
+        "area_km2": 277.8,
+        "canopy_density": "Moderately Dense",
+        "main_species": "Sal, Saja, Mahua, Tendu, Char, Bahera",
+        "wildlife": "Leopard, Sloth Bear, Chital, Wild Boar, Barking Deer, Pangolin",
+        "elephant_corridor": true,
+        "eco_sensitive_buffer_km": 5.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 92,
+        "estimated_tree_count": 280000,
+        "carbon_stock_estimate_tons": 145000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 9.5},
+          {"year": 2017, "loss_ha": 8.8},
+          {"year": 2018, "loss_ha": 7.9},
+          {"year": 2019, "loss_ha": 26.2},
+          {"year": 2020, "loss_ha": 19.1},
+          {"year": 2021, "loss_ha": 12.4},
+          {"year": 2022, "loss_ha": 11.0},
+          {"year": 2023, "loss_ha": 31.8},
+          {"year": 2024, "loss_ha": 14.2},
+          {"year": 2025, "loss_ha": 12.0}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [83.1000, 21.3500],
+            [83.4500, 21.3500],
+            [83.4500, 21.6500],
+            [83.1000, 21.6500],
+            [83.1000, 21.3500]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-008",
+        "name": "Tamor Pingla Wildlife Sanctuary",
+        "name_hi": "तमोर पिंगला वन्यजीव अभयारण्य",
+        "type": "Wildlife Sanctuary",
+        "district": "Surajpur",
+        "area_km2": 608.5,
+        "canopy_density": "Very Dense",
+        "main_species": "Sal, Bamboo, Teak, Mahua, Dhawda, Saja",
+        "wildlife": "Elephant Herd, Asian Elephant, Leopard, Bear, Blue Bull, Chital",
+        "elephant_corridor": true,
+        "eco_sensitive_buffer_km": 10.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 182,
+        "estimated_tree_count": 640000,
+        "carbon_stock_estimate_tons": 330000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 18.0},
+          {"year": 2017, "loss_ha": 16.2},
+          {"year": 2018, "loss_ha": 14.5},
+          {"year": 2019, "loss_ha": 52.0},
+          {"year": 2020, "loss_ha": 38.1},
+          {"year": 2021, "loss_ha": 26.0},
+          {"year": 2022, "loss_ha": 23.4},
+          {"year": 2023, "loss_ha": 64.0},
+          {"year": 2024, "loss_ha": 29.5},
+          {"year": 2025, "loss_ha": 25.1}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [82.9000, 23.3000],
+            [83.3500, 23.3000],
+            [83.3500, 23.6500],
+            [82.9000, 23.6500],
+            [82.9000, 23.3000]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-009",
+        "name": "Sitanadi Wildlife Sanctuary",
+        "name_hi": "सीतानदी वन्यजीव अभयारण्य",
+        "type": "Wildlife Sanctuary",
+        "district": "Dhamtari",
+        "area_km2": 553.4,
+        "canopy_density": "Very Dense",
+        "main_species": "Teak, Sal, Bamboo, Tendu, Saja",
+        "wildlife": "Leopard, Wild Buffalo, Sloth Bear, Sambhar, Barking Deer",
+        "elephant_corridor": true,
+        "eco_sensitive_buffer_km": 5.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 134,
+        "estimated_tree_count": 590000,
+        "carbon_stock_estimate_tons": 310000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 14.0},
+          {"year": 2017, "loss_ha": 12.8},
+          {"year": 2018, "loss_ha": 11.2},
+          {"year": 2019, "loss_ha": 41.0},
+          {"year": 2020, "loss_ha": 29.5},
+          {"year": 2021, "loss_ha": 19.8},
+          {"year": 2022, "loss_ha": 17.5},
+          {"year": 2023, "loss_ha": 49.0},
+          {"year": 2024, "loss_ha": 22.1},
+          {"year": 2025, "loss_ha": 18.6}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [81.6500, 20.2000],
+            [82.0000, 20.2000],
+            [82.0000, 20.5000],
+            [81.6500, 20.5000],
+            [81.6500, 20.2000]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-010",
+        "name": "Bastar Central Reserved Forest",
+        "name_hi": "बस्तर केंद्रीय आरक्षित वन",
+        "type": "Reserved Forest",
+        "district": "Bastar",
+        "area_km2": 412.0,
+        "canopy_density": "Very Dense",
+        "main_species": "Sal, Bamboo, Teak, Saja, Harra",
+        "wildlife": "Leopard, Sloth Bear, Chital, Wild Boar, Flying Squirrel",
+        "elephant_corridor": false,
+        "eco_sensitive_buffer_km": 2.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 78,
+        "estimated_tree_count": 480000,
+        "carbon_stock_estimate_tons": 240000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 10.1},
+          {"year": 2017, "loss_ha": 9.4},
+          {"year": 2018, "loss_ha": 8.5},
+          {"year": 2019, "loss_ha": 29.0},
+          {"year": 2020, "loss_ha": 21.0},
+          {"year": 2021, "loss_ha": 14.2},
+          {"year": 2022, "loss_ha": 12.8},
+          {"year": 2023, "loss_ha": 35.0},
+          {"year": 2024, "loss_ha": 16.0},
+          {"year": 2025, "loss_ha": 13.4}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [81.4000, 19.1000],
+            [81.7500, 19.1000],
+            [81.7500, 19.4000],
+            [81.4000, 19.4000],
+            [81.4000, 19.1000]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-011",
+        "name": "Kondagaon Sal Reserve",
+        "name_hi": "कोंडागांव साल रिजर्व",
+        "type": "Reserved Forest",
+        "district": "Kondagaon",
+        "area_km2": 310.5,
+        "canopy_density": "Very Dense",
+        "main_species": "Sal, Tendu, Mahua, Saja",
+        "wildlife": "Sloth Bear, Leopard, Chital, Wild Boar",
+        "elephant_corridor": false,
+        "eco_sensitive_buffer_km": 2.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 55,
+        "estimated_tree_count": 390000,
+        "carbon_stock_estimate_tons": 190000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 8.0},
+          {"year": 2017, "loss_ha": 7.2},
+          {"year": 2018, "loss_ha": 6.8},
+          {"year": 2019, "loss_ha": 22.1},
+          {"year": 2020, "loss_ha": 16.0},
+          {"year": 2021, "loss_ha": 11.2},
+          {"year": 2022, "loss_ha": 9.9},
+          {"year": 2023, "loss_ha": 27.5},
+          {"year": 2024, "loss_ha": 12.8},
+          {"year": 2025, "loss_ha": 10.5}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [81.5000, 19.5000],
+            [81.8000, 19.5000],
+            [81.8000, 19.8000],
+            [81.5000, 19.8000],
+            [81.5000, 19.5000]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-012",
+        "name": "Kanker Hills Protected Forest",
+        "name_hi": "कांकेर पहाड़ी संरक्षित वन",
+        "type": "Protected Forest",
+        "district": "Kanker",
+        "area_km2": 215.0,
+        "canopy_density": "Open",
+        "main_species": "Teak, Saja, Tendu, Bamboo",
+        "wildlife": "Leopard, Sloth Bear, Wild Boar, Jackal",
+        "elephant_corridor": false,
+        "eco_sensitive_buffer_km": 1.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 42,
+        "estimated_tree_count": 210000,
+        "carbon_stock_estimate_tons": 98000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 5.5},
+          {"year": 2017, "loss_ha": 4.9},
+          {"year": 2018, "loss_ha": 4.2},
+          {"year": 2019, "loss_ha": 15.0},
+          {"year": 2020, "loss_ha": 11.2},
+          {"year": 2021, "loss_ha": 7.8},
+          {"year": 2022, "loss_ha": 6.9},
+          {"year": 2023, "loss_ha": 18.2},
+          {"year": 2024, "loss_ha": 8.5},
+          {"year": 2025, "loss_ha": 7.1}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [81.3000, 20.1000],
+            [81.6000, 20.1000],
+            [81.6000, 20.3500],
+            [81.3000, 20.3500],
+            [81.3000, 20.1000]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-013",
+        "name": "Korba Coalfield Forest Range",
+        "name_hi": "कोरबा कोयला क्षेत्र वन परिक्षेत्र",
+        "type": "Protected Forest",
+        "district": "Korba",
+        "area_km2": 380.0,
+        "canopy_density": "Open",
+        "main_species": "Sal, Mahua, Tendu, Dhawda",
+        "wildlife": "Elephant Herd, Sloth Bear, Wild Boar, Monkey",
+        "elephant_corridor": true,
+        "eco_sensitive_buffer_km": 3.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 115,
+        "estimated_tree_count": 350000,
+        "carbon_stock_estimate_tons": 175000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 15.0},
+          {"year": 2017, "loss_ha": 18.2},
+          {"year": 2018, "loss_ha": 21.4},
+          {"year": 2019, "loss_ha": 48.0},
+          {"year": 2020, "loss_ha": 35.0},
+          {"year": 2021, "loss_ha": 29.1},
+          {"year": 2022, "loss_ha": 24.5},
+          {"year": 2023, "loss_ha": 62.0},
+          {"year": 2024, "loss_ha": 31.0},
+          {"year": 2025, "loss_ha": 28.0}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [82.5000, 22.2000],
+            [82.9000, 22.2000],
+            [82.9000, 22.5500],
+            [82.5000, 22.5500],
+            [82.5000, 22.2000]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-014",
+        "name": "Mainpat Plateau Forest Range",
+        "name_hi": "मैनपाट पठार वन परिक्षेत्र",
+        "type": "Reserved Forest",
+        "district": "Surguja",
+        "area_km2": 290.0,
+        "canopy_density": "Very Dense",
+        "main_species": "Sal, Pine, Teak, Bamboo, Eucalyptus",
+        "wildlife": "Leopard, Sloth Bear, Wild Boar, Barking Deer, Eagle",
+        "elephant_corridor": true,
+        "eco_sensitive_buffer_km": 5.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 89,
+        "estimated_tree_count": 410000,
+        "carbon_stock_estimate_tons": 215000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 7.4},
+          {"year": 2017, "loss_ha": 6.8},
+          {"year": 2018, "loss_ha": 5.9},
+          {"year": 2019, "loss_ha": 21.0},
+          {"year": 2020, "loss_ha": 15.2},
+          {"year": 2021, "loss_ha": 10.1},
+          {"year": 2022, "loss_ha": 8.9},
+          {"year": 2023, "loss_ha": 25.4},
+          {"year": 2024, "loss_ha": 11.5},
+          {"year": 2025, "loss_ha": 9.8}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [83.1000, 22.7000],
+            [83.4500, 22.7000],
+            [83.4500, 23.0000],
+            [83.1000, 23.0000],
+            [83.1000, 22.7000]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-015",
+        "name": "Jashpur Elephant Sanctuary Reserve",
+        "name_hi": "जशपुर हाथी अभयारण्य रिजर्व",
+        "type": "Reserved Forest",
+        "district": "Jashpur",
+        "area_km2": 450.0,
+        "canopy_density": "Very Dense",
+        "main_species": "Sal, Bamboo, Saja, Tendu, Mahua",
+        "wildlife": "Asian Elephant, Leopard, Sloth Bear, Wild Boar, Chital",
+        "elephant_corridor": true,
+        "eco_sensitive_buffer_km": 10.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 160,
+        "estimated_tree_count": 520000,
+        "carbon_stock_estimate_tons": 270000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 11.5},
+          {"year": 2017, "loss_ha": 10.2},
+          {"year": 2018, "loss_ha": 9.4},
+          {"year": 2019, "loss_ha": 34.0},
+          {"year": 2020, "loss_ha": 24.1},
+          {"year": 2021, "loss_ha": 16.5},
+          {"year": 2022, "loss_ha": 14.8},
+          {"year": 2023, "loss_ha": 41.0},
+          {"year": 2024, "loss_ha": 18.5},
+          {"year": 2025, "loss_ha": 15.6}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [83.8000, 22.6500],
+            [84.2500, 22.6500],
+            [84.2500, 23.0000],
+            [83.8000, 23.0000],
+            [83.8000, 22.6500]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FOR-CG-016",
+        "name": "Raipur South Forest Division",
+        "name_hi": "रायपुर दक्षिण वन मंडल",
+        "type": "Protected Forest",
+        "district": "Raipur",
+        "area_km2": 180.0,
+        "canopy_density": "Moderately Dense",
+        "main_species": "Teak, Sal, Bamboo, Mahua",
+        "wildlife": "Chital, Wild Boar, Jackal, Peacock",
+        "elephant_corridor": false,
+        "eco_sensitive_buffer_km": 1.0,
+        "forest_clearance_required": true,
+        "fra_claims_count": 28,
+        "estimated_tree_count": 190000,
+        "carbon_stock_estimate_tons": 92000.0,
+        "loss_time_series": [
+          {"year": 2016, "loss_ha": 4.2},
+          {"year": 2017, "loss_ha": 3.8},
+          {"year": 2018, "loss_ha": 3.4},
+          {"year": 2019, "loss_ha": 12.0},
+          {"year": 2020, "loss_ha": 8.5},
+          {"year": 2021, "loss_ha": 5.9},
+          {"year": 2022, "loss_ha": 5.1},
+          {"year": 2023, "loss_ha": 14.2},
+          {"year": 2024, "loss_ha": 6.4},
+          {"year": 2025, "loss_ha": 5.3}
+        ],
+        "data_source": "Demo data",
+        "approximate": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [81.7500, 20.9000],
+            [82.0500, 20.9000],
+            [82.0500, 21.1500],
+            [81.7500, 21.1500],
+            [81.7500, 20.9000]
+          ]
+        ]
+      }
+    }
+  ]
+}

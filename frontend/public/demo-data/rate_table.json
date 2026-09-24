@@ -1,0 +1,63 @@
+{
+  "act_reference": "Right to Fair Compensation and Transparency in Land Acquisition, Rehabilitation and Resettlement Act, 2013",
+  "currency": "INR",
+  "default_rates_per_ha": {
+    "IRRIGATED": 25.0,
+    "RAIN_FED": 16.0,
+    "BANJAR": 6.0,
+    "FOREST": 10.0,
+    "RESIDENTIAL": 55.0,
+    "COMMERCIAL": 85.0
+  },
+  "village_rates_per_ha": {
+    "Semra": {
+      "IRRIGATED": 28.0,
+      "RAIN_FED": 18.0,
+      "BANJAR": 7.0,
+      "FOREST": 11.0,
+      "RESIDENTIAL": 60.0,
+      "COMMERCIAL": 90.0
+    },
+    "Abhanpur": {
+      "IRRIGATED": 25.0,
+      "RAIN_FED": 16.0,
+      "BANJAR": 6.0,
+      "FOREST": 10.0,
+      "RESIDENTIAL": 55.0,
+      "COMMERCIAL": 85.0
+    },
+    "Kurud": {
+      "IRRIGATED": 22.0,
+      "RAIN_FED": 14.0,
+      "BANJAR": 5.5,
+      "FOREST": 9.0,
+      "RESIDENTIAL": 48.0,
+      "COMMERCIAL": 75.0
+    },
+    "Dhamtari": {
+      "IRRIGATED": 26.0,
+      "RAIN_FED": 17.0,
+      "BANJAR": 6.5,
+      "FOREST": 10.5,
+      "RESIDENTIAL": 58.0,
+      "COMMERCIAL": 88.0
+    }
+  },
+  "village_multipliers": {
+    "Semra": 1.5,
+    "Abhanpur": 1.25,
+    "Kurud": 1.5,
+    "Dhamtari": 1.2,
+    "Bhilai": 1.0,
+    "Raipur": 1.0
+  },
+  "solatium_percentage": 100.0,
+  "asset_allowances_per_ha": {
+    "IRRIGATED": 2.5,
+    "RAIN_FED": 1.2,
+    "BANJAR": 0.2,
+    "FOREST": 3.0,
+    "RESIDENTIAL": 15.0,
+    "COMMERCIAL": 30.0
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            77.12,
+            22.67
+          ],
+          [
+            77.18,
+            22.71
+          ],
+          [
+            77.25,
+            22.75
+          ],
+          [
+            77.32,
+            22.79
+          ],
+          [
+            77.38,
+            22.83
+          ]
+        ]
+      },
+      "properties": {
+        "highway_id": "NH-46",
+        "name": "National Highway 46 (Bhopal-Betul)",
+        "category": "National Highway"
+      }
+    }
+  ]
+}

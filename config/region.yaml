@@ -1,0 +1,69 @@
+# Single Unified Demo Region: Chhattisgarh (Raipur - Dhamtari - Durg Alignment Corridor)
+region_name: "Raipur - Dhamtari - Durg Corridor, Chhattisgarh"
+district: "Raipur"
+state: "Chhattisgarh"
+country: "India"
+bounding_box:
+  min_lat: 20.6000
+  max_lat: 21.6000
+  min_lng: 81.1000
+  max_lng: 82.1000
+center:
+  lat: 21.2500
+  lng: 81.6300
+default_zoom: 11
+
+highways:
+  - id: "NH-30"
+    name: "National Highway 30 (Raipur-Abhanpur-Dhamtari Corridor)"
+    type: "National Highway"
+    start_coord: [21.2800, 81.6320]
+    end_coord: [21.1500, 81.6500]
+  - id: "NH-53"
+    name: "National Highway 53 (Durg-Bhilai-Raipur-Arang Link)"
+    type: "National Highway"
+    start_coord: [21.2500, 81.5800]
+    end_coord: [21.2650, 81.7000]
+  - id: "NH-130"
+    name: "National Highway 130 (Raipur-Simga-Bilaspur Link)"
+    type: "National Highway"
+    start_coord: [21.2200, 81.6250]
+    end_coord: [21.3500, 81.6500]
+
+land_classes:
+  - id: 1
+    code: "IRRIGATED"
+    name_en: "Irrigated Agricultural Land"
+    name_hi: "सिंचित कृषि भूमि"
+    color: "#22c55e"
+    fertility: "high"
+  - id: 2
+    code: "RAIN_FED"
+    name_en: "Rain-fed Agricultural Land"
+    name_hi: "वर्षा सिंचित कृषि भूमि"
+    color: "#84cc16"
+    fertility: "medium"
+  - id: 3
+    code: "BANJAR"
+    name_en: "Barren / Banjar Land"
+    name_hi: "बंजर भूमि"
+    color: "#d97706"
+    fertility: "none"
+  - id: 4
+    code: "FOREST"
+    name_en: "Forest / Dense Vegetation"
+    name_hi: "वन एवं सघन वनस्पति"
+    color: "#15803d"
+    fertility: "protected"
+  - id: 5
+    code: "RESIDENTIAL"
+    name_en: "Residential / Abadi Land"
+    name_hi: "आवासीय भूमि"
+    color: "#ef4444"
+    fertility: "urban"
+  - id: 6
+    code: "COMMERCIAL"
+    name_en: "Commercial / Industrial Land"
+    name_hi: "व्यावसायिक भूमि"
+    color: "#a855f7"
+    fertility: "urban"

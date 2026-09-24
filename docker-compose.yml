@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: bhumisetu_db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-bhumisetu}
+      POSTGRES_USER: ${POSTGRES_USER:-bhumisetu_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-bhumisetu_pass}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-bhumisetu_user} -d ${POSTGRES_DB:-bhumisetu}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: bhumisetu_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-bhumisetu_user}:${POSTGRES_PASSWORD:-bhumisetu_pass}@postgres:5432/${POSTGRES_DB:-bhumisetu}
+      - SECRET_KEY=${SECRET_KEY:-bhumisetu_super_secret_jwt_key_2026_sih}
+      - ENVIRONMENT=development
+    volumes:
+      - ./backend:/app
+      - ./data:/app/data
+      - ./config:/app/config
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: bhumisetu_frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

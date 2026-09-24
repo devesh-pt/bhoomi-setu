@@ -1,0 +1,34 @@
+# Compensation (Muavja) Formula Configuration based on RFCTLARR Act 2013 Guidelines
+# Note: Values are illustrative default rates per hectare and solatium factors.
+
+act_reference: "Right to Fair Compensation and Transparency in Land Acquisition, Rehabilitation and Resettlement Act, 2013"
+currency: "INR"
+
+# Base market values per hectare (in INR Lakhs)
+base_market_values_per_ha:
+  IRRIGATED: 25.0       # Rs 25,000,000 / ha
+  RAIN_FED: 16.0        # Rs 16,000,000 / ha
+  BANJAR: 6.0           # Rs 6,000,000 / ha
+  FOREST: 12.0          # Rs 12,000,000 / ha (ecological compensation value)
+  RESIDENTIAL: 55.0     # Rs 55,000,000 / ha
+  COMMERCIAL: 85.0      # Rs 85,000,000 / ha
+
+# Location Multipliers (Rural vs Urban distance factor)
+location_multipliers:
+  rural_factor: 2.0      # Up to 2.0 multiplier for rural areas under RFCTLARR
+  urban_factor: 1.0      # 1.0 multiplier for urban areas
+
+# Solatium percentage (100% solatium added under Section 30 of RFCTLARR 2013)
+solatium_percentage: 100.0
+
+# Statutory Interest rate per annum on market value (Section 30(2))
+interest_rate_pa: 12.0
+
+# Fixed asset/crop standard allowances (in INR Lakhs per ha)
+asset_allowances_per_ha:
+  IRRIGATED: 2.5        # Standing crop + tube well + fencing
+  RAIN_FED: 1.2         # Standing crop + fencing
+  BANJAR: 0.2           # Boundary stone
+  FOREST: 5.0           # Tree timber value compensation
+  RESIDENTIAL: 15.0     # Built structure compensation
+  COMMERCIAL: 30.0      # Industrial structure compensation

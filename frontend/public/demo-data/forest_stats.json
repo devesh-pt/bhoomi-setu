@@ -1,0 +1,190 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "name": "Indravati National Park",
+      "district": "Bijapur",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "2",
+      "name": "Kanger Ghati National Park",
+      "district": "Bastar",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "3",
+      "name": "Guru Ghasidas National Park",
+      "district": "Koriya",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "4",
+      "name": "Achanakmar Tiger Reserve",
+      "district": "Mungeli",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "5",
+      "name": "Udanti-Sitanadi Tiger Reserve",
+      "district": "Gariaband",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "6",
+      "name": "Barnawapara Wildlife Sanctuary",
+      "district": "Mahasamund",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "7",
+      "name": "Gomarda Wildlife Sanctuary",
+      "district": "Raigarh",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "8",
+      "name": "Tamor Pingla Wildlife Sanctuary",
+      "district": "Surajpur",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "9",
+      "name": "Sitanadi Wildlife Sanctuary",
+      "district": "Dhamtari",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "10",
+      "name": "Bastar Central Reserved Forest",
+      "district": "Bastar",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "11",
+      "name": "Kondagaon Sal Reserve",
+      "district": "Kondagaon",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "12",
+      "name": "Kanker Hills Protected Forest",
+      "district": "Kanker",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "13",
+      "name": "Korba Coalfield Forest Range",
+      "district": "Korba",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "14",
+      "name": "Mainpat Plateau Forest Range",
+      "district": "Surguja",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "15",
+      "name": "Jashpur Elephant Sanctuary Reserve",
+      "district": "Jashpur",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    },
+    {
+      "id": "16",
+      "name": "Raipur South Forest Division",
+      "district": "Raipur",
+      "forest_type": "RESERVED",
+      "area_ha": 450.0,
+      "tree_density_percent": 78.5,
+      "canopy_cover_class": "DENSE",
+      "geometry": null
+    }
+  ],
+  "total_forest_area_ha": 7200.0,
+  "avg_tree_density": 74.2,
+  "annual_loss_ha": 12.4,
+  "net_compensatory_afforestation_ha": 35.8,
+  "historical_loss": [
+    {
+      "year": 2021,
+      "loss_ha": 18.2,
+      "afforestation_ha": 25.0
+    },
+    {
+      "year": 2022,
+      "loss_ha": 15.1,
+      "afforestation_ha": 28.5
+    },
+    {
+      "year": 2023,
+      "loss_ha": 14.0,
+      "afforestation_ha": 30.0
+    },
+    {
+      "year": 2024,
+      "loss_ha": 12.4,
+      "afforestation_ha": 35.8
+    }
+  ]
+}

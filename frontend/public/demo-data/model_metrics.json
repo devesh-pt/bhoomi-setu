@@ -1,0 +1,18 @@
+{
+  "model_name": "BHUMISETU Geospatial Land Classifier v2.4",
+  "accuracy_score": 0.964,
+  "f1_score": 0.958,
+  "precision": 0.961,
+  "recall": 0.955,
+  "total_training_samples": 45800,
+  "classes": [
+    "IRRIGATED",
+    "RAIN_FED",
+    "BANJAR",
+    "FOREST",
+    "RESIDENTIAL",
+    "COMMERCIAL"
+  ],
+  "anomaly_detection_threshold": 0.82,
+  "last_trained": "2026-09-20"
+}

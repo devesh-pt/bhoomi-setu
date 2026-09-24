@@ -1,0 +1,17 @@
+{
+  "name": "BHOOMI SETU — National Digital Land Intelligence Platform",
+  "short_name": "BHOOMI SETU",
+  "description": "National Digital Platform for Evidence-Based Land Governance, Infrastructure Acquisition, GIS Intelligence & Forest Impact Monitoring",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#059669",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

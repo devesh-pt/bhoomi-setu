@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased font-sans;
+  }
+}
+
+/* Keyframe Animations for Design System */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pageSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes driftGrid {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 60px 60px;
+  }
+}
+
+@keyframes emblemPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.4));
+  }
+  50% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 30px rgba(16, 185, 129, 0.8));
+  }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+.animate-modal-in {
+  animation: modalIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-page-slide {
+  animation: pageSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-drift-grid {
+  animation: driftGrid 20s linear infinite;
+}
+
+.animate-emblem-pulse {
+  animation: emblemPulse 1.2s ease-in-out infinite;
+}
+
+/* Custom leaflet pin overrides */
+.custom-leaflet-pin {
+  background: transparent;
+  border: none;
+}
+
+/* Scrollbar polish */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Khasra Plot Polygon Label Style */
+.khasra-polygon-tooltip {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  font-size: 11px !important;
+  text-shadow:
+    -1px -1px 2px #000,
+     1px -1px 2px #000,
+    -1px  1px 2px #000,
+     1px  1px 2px #000,
+     0px  0px 4px #000;
+  pointer-events: none !important;
+  white-space: nowrap !important;
+  padding: 0 !important;
+}
+
+.leaflet-tooltip-pane .khasra-polygon-tooltip::before {
+  display: none !important;
+}
+
