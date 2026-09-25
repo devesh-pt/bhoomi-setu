@@ -10,7 +10,13 @@ import {
   PanelLeftClose,
   PanelLeftOpen,
   Route,
-  Trees
+  Trees,
+  Layers,
+  Bot,
+  FolderKanban,
+  FileText,
+  Sliders,
+  ShieldCheck
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
@@ -47,13 +53,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
   }
 
   const navItems: NavItem[] = [
+    { id: 'dashboard', label: 'Executive Dashboard', icon: Layers, badge: 'HOME' },
     { id: 'land_map', label: 'Bhu-Naksha GIS Map', icon: Map, badge: 'GIS' },
     { id: 'cascading_search', label: 'Land Search', icon: Search, badge: 'SEARCH' },
-    { id: 'highways', label: 'Highways & Alignment', icon: Route, badge: 'HIGHWAYS' },
-    { id: 'ai_detection', label: 'Muavja & Ready-Map', icon: Sparkles, badge: 'MUAVJA' },
+    { id: 'highways', label: 'Highways Corridor', icon: Route, badge: 'HIGHWAYS' },
+    { id: 'muavja', label: 'Muavja & Ready-Map', icon: Sparkles, badge: 'MUAVJA' },
     { id: 'forest_impact', label: 'Forest Impact', icon: Trees, badge: 'FOREST' },
     { id: 'grievances', label: 'Record Corrections', icon: HelpCircle },
     { id: 'court', label: 'Revenue Court', icon: Scale },
+    { id: 'predictive', label: 'Risk Predictor', icon: Sparkles, badge: 'AI' },
+    { id: 'bhoomi_ai', label: 'Ask Bhoomi AI', icon: Bot, badge: 'ASSIST' },
+    { id: 'projects', label: 'Projects Directory', icon: FolderKanban },
+    { id: 'research', label: 'Research Hub', icon: FileText },
+    { id: 'policy', label: 'Policy Lab', icon: Sliders },
+    { id: 'admin', label: 'Admin Management', icon: ShieldCheck, badge: 'ADMIN' },
     { id: 'profile', label: 'User Profile', icon: User },
   ];
 

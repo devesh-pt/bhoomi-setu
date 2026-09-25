@@ -18,6 +18,14 @@ import { RevenueCourtView } from './components/bhuiyan/RevenueCourtView';
 import { HighwaysModule } from './components/highways/HighwaysModule';
 import { MuavjaModule } from './components/muavja/MuavjaModule';
 import { ForestImpactModule } from './components/forest/ForestImpactModule';
+import { DashboardView } from './components/dashboard/DashboardView';
+import { PredictiveAnalyticsView } from './components/predictive/PredictiveAnalyticsView';
+import { BhoomiAIView } from './components/ai/BhoomiAIView';
+import { ProjectsView } from './components/projects/ProjectsView';
+import { ProjectDetailView } from './components/projects/ProjectDetailView';
+import { ResearchHubView } from './components/research/ResearchHubView';
+import { PolicyLabView } from './components/policylab/PolicyLabView';
+import { AdminLandManagementView } from './components/admin/AdminLandManagementView';
 import { ProfileView } from './components/profile/ProfileView';
 import { GuidedDemoMode } from './components/demo/GuidedDemoMode';
 import { Header } from './components/common/Header';
@@ -29,21 +37,28 @@ import { ToastProvider } from './components/ui/ToastContext';
 import { AuthProvider } from './context/AuthContext';
 import { OfflineProvider } from './context/OfflineContext';
 import { DemoProvider } from './context/DemoContext';
-import { api } from './services/api';
-
 import { BottomNav } from './components/common/BottomNav';
-import { isDemoMode } from './services/api';
+import { api, isDemoMode } from './services/api';
 
 type ModuleType =
+  | 'dashboard'
   | 'land_map'
   | 'cascading_search'
-  | 'grievances'
-  | 'court'
   | 'highways'
+  | 'muavja'
   | 'ai_detection'
   | 'forest_impact'
-  | 'verify'
-  | 'profile';
+  | 'grievances'
+  | 'court'
+  | 'predictive'
+  | 'bhoomi_ai'
+  | 'projects'
+  | 'project_detail'
+  | 'research'
+  | 'policy'
+  | 'admin'
+  | 'profile'
+  | 'verify';
 
 export const AppContent: React.FC = () => {
   const { t } = useTranslation();
@@ -56,6 +71,8 @@ export const AppContent: React.FC = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
   const [backendOffline, setBackendOffline] = useState<boolean>(false);
   const [checkingBackend, setCheckingBackend] = useState<boolean>(false);
+
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
 
   // Modals for B-1, P-II, Girdawari
   const [activeKhatauni, setActiveKhatauni] = useState<string | null>(null);
@@ -90,8 +107,9 @@ export const AppContent: React.FC = () => {
         setVerifyHash(hashVal);
         setActiveModule('verify');
       } else if (hash && [
-        'land_map', 'cascading_search', 'grievances', 'court',
-        'highways', 'ai_detection', 'forest_impact', 'profile'
+        'dashboard', 'land_map', 'cascading_search', 'grievances', 'court',
+        'highways', 'muavja', 'ai_detection', 'forest_impact', 'predictive',
+        'bhoomi_ai', 'projects', 'project_detail', 'research', 'policy', 'admin', 'profile'
       ].includes(hash)) {
         setActiveModule(hash as ModuleType);
       }
@@ -143,7 +161,7 @@ export const AppContent: React.FC = () => {
 
   const handleDemoNavigate = (tab: string) => {
     if (tab === 'search') handleModuleChange('cascading_search');
-    else if (tab === 'dispute' || tab === 'ai_detection') handleModuleChange('ai_detection');
+    else if (tab === 'dispute' || tab === 'ai_detection') handleModuleChange('bhoomi_ai');
     else if (tab === 'highways') handleModuleChange('highways');
     else if (tab === 'forest') handleModuleChange('forest_impact');
     else handleModuleChange('land_map');
@@ -229,6 +247,18 @@ export const AppContent: React.FC = () => {
         <main className="flex-1 overflow-y-auto p-4 lg:p-6 bg-slate-950 pb-20 lg:pb-6">
           <div key={activeModule} className="animate-page-slide min-h-full">
             <ErrorBoundary>
+              {activeModule === 'dashboard' && (
+                <DashboardView
+                  onNavigate={(tab, projId) => {
+                    if (projId) {
+                      setSelectedProjectId(projId);
+                      handleModuleChange('project_detail');
+                    } else {
+                      handleModuleChange(tab);
+                    }
+                  }}
+                />
+              )}
               {activeModule === 'land_map' && <LandMapModule />}
               {activeModule === 'cascading_search' && (
                 <CascadingLandSearch
@@ -237,11 +267,30 @@ export const AppContent: React.FC = () => {
                   onOpenKhasra={(parcelId) => setActiveKhasra(parcelId)}
                 />
               )}
+              {activeModule === 'highways' && <HighwaysModule />}
+              {(activeModule === 'muavja' || activeModule === 'ai_detection') && <MuavjaModule />}
+              {activeModule === 'forest_impact' && <ForestImpactModule />}
               {activeModule === 'grievances' && <GrievanceModuleView />}
               {activeModule === 'court' && <RevenueCourtView />}
-              {activeModule === 'highways' && <HighwaysModule />}
-              {activeModule === 'ai_detection' && <MuavjaModule />}
-              {activeModule === 'forest_impact' && <ForestImpactModule />}
+              {activeModule === 'predictive' && <PredictiveAnalyticsView />}
+              {activeModule === 'bhoomi_ai' && <BhoomiAIView />}
+              {activeModule === 'projects' && (
+                <ProjectsView
+                  onSelectProject={(id) => {
+                    setSelectedProjectId(id);
+                    handleModuleChange('project_detail');
+                  }}
+                />
+              )}
+              {activeModule === 'project_detail' && (
+                <ProjectDetailView
+                  projectId={selectedProjectId || 'proj-nh30'}
+                  onBack={() => handleModuleChange('projects')}
+                />
+              )}
+              {activeModule === 'research' && <ResearchHubView />}
+              {activeModule === 'policy' && <PolicyLabView />}
+              {activeModule === 'admin' && <AdminLandManagementView />}
               {activeModule === 'profile' && <ProfileView />}
             </ErrorBoundary>
           </div>
