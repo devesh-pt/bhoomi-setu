@@ -53,6 +53,10 @@ bhumisetu*.db
 *.png
 *.jpg
 *.jpeg
+!**/public/*.png
+!**/public/*.jpg
+!**/public/*.ico
+!**/src/assets/*.png
 audit_results.json
 artifacts_preview/
 
