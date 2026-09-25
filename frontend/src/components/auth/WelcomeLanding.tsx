@@ -16,10 +16,10 @@ export const WelcomeLanding: React.FC<WelcomeLandingProps> = ({
       <header className="px-6 py-5 border-b border-slate-800 flex items-center justify-between max-w-7xl mx-auto w-full">
         <div className="flex items-center space-x-3">
           <img
-            src="/logo.png"
-            onError={(e) => { (e.target as HTMLImageElement).src = '/logo.svg'; }}
+            src={`${(import.meta as any).env?.BASE_URL || './'}logo.png`}
+            onError={(e) => { (e.target as HTMLImageElement).src = `${(import.meta as any).env?.BASE_URL || './'}logo.svg`; }}
             alt="BHOOMI SETU Emblem"
-            className="w-10 h-10 rounded-xl object-cover shadow-lg border border-emerald-500/30"
+            className="w-10 h-10 rounded-xl object-contain bg-slate-950 p-0.5 shadow-lg border border-emerald-500/30"
           />
           <div>
             <h1 className="font-extrabold text-xl tracking-tight text-white">BHOOMI SETU</h1>

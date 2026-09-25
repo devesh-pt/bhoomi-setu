@@ -81,10 +81,10 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onBackToLanding, onExp
             </button>
 
             <img
-              src="/logo.png"
-              onError={(e) => { (e.target as HTMLImageElement).src = '/logo.svg'; }}
+              src={`${(import.meta as any).env?.BASE_URL || './'}logo.png`}
+              onError={(e) => { (e.target as HTMLImageElement).src = `${(import.meta as any).env?.BASE_URL || './'}logo.svg`; }}
               alt="BHOOMI SETU Emblem"
-              className="w-12 h-12 rounded-2xl object-cover shadow-lg border border-emerald-400/40 mb-3"
+              className="w-12 h-12 rounded-2xl object-contain bg-slate-900 p-0.5 shadow-lg border border-emerald-400/40 mb-3"
             />
             <h2 className="text-2xl font-black tracking-tight text-white">BHOOMI SETU</h2>
             <p className="text-xs text-emerald-400 font-bold uppercase tracking-wider mt-1">

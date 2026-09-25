@@ -52,7 +52,7 @@ export const BhunakshaSidebar: React.FC<BhunakshaSidebarProps> = ({
   const [khasraInput, setKhasraInput] = useState('');
   const [isVivranOpen, setIsVivranOpen] = useState(false);
   const [downloadingReport, setDownloadingReport] = useState(false);
-  const [isMobileExpanded, setIsMobileExpanded] = useState(true);
+  const [isMobileExpanded, setIsMobileExpanded] = useState(false);
 
   // Switch to Plot or Forest tab automatically when selected
   useEffect(() => {

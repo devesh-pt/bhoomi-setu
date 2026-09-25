@@ -67,9 +67,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
       <div className="p-4 border-b border-slate-800/80 flex items-center justify-between">
         <div className="flex items-center space-x-3 overflow-hidden">
           <img
-            src={`${(import.meta as any).env?.BASE_URL || './'}logo.svg`}
+            src={`${(import.meta as any).env?.BASE_URL || './'}logo.png`}
             alt="BHOOMI SETU Emblem"
-            className="w-9 h-9 rounded-xl object-contain bg-slate-900 p-1 border border-emerald-500/30 shrink-0"
+            className="w-9 h-9 rounded-xl object-contain bg-slate-900 p-0.5 border border-emerald-500/30 shrink-0"
+            onError={(e: any) => { e.target.src = `${(import.meta as any).env?.BASE_URL || './'}logo.svg`; }}
           />
           {!isCollapsed && (
             <div className="whitespace-nowrap overflow-hidden">

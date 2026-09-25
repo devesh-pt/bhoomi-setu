@@ -58,9 +58,10 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onNavigate, un
               <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                 <div className="flex items-center space-x-2">
                   <img
-                    src={`${(import.meta as any).env?.BASE_URL || './'}logo.svg`}
+                    src={`${(import.meta as any).env?.BASE_URL || './'}logo.png`}
                     alt="BHOOMI SETU Emblem"
-                    className="w-8 h-8 rounded-lg object-contain bg-slate-950 p-1 border border-emerald-500/30"
+                    className="w-8 h-8 rounded-lg object-contain bg-slate-950 p-0.5 border border-emerald-500/30"
+                    onError={(e: any) => { e.target.src = `${(import.meta as any).env?.BASE_URL || './'}logo.svg`; }}
                   />
                   <span className="font-extrabold text-slate-100 text-sm">BHOOMI SETU</span>
                 </div>

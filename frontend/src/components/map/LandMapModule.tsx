@@ -431,6 +431,8 @@ export const LandMapModule: React.FC = () => {
             zoom={mapZoom}
             minZoom={10}
             maxZoom={19}
+            dragging={true}
+            touchZoom={true}
             className="w-full h-full"
           >
             <MapFlyTo center={mapCenter} zoom={mapZoom} />

@@ -145,7 +145,7 @@ export const KhasraVivranModal: React.FC<KhasraVivranModalProps> = ({
           {/* Government Header */}
           <div className="text-center border-b-2 border-emerald-800 pb-4 space-y-1">
             <div className="flex justify-center items-center gap-3">
-              <img src="/logo.svg" alt="Logo" className="w-10 h-10 object-contain" onError={(e: any) => e.target.style.display='none'} />
+              <img src={`${(import.meta as any).env?.BASE_URL || './'}logo.png`} alt="Logo" className="w-10 h-10 object-contain" onError={(e: any) => { (e.target as HTMLImageElement).src = `${(import.meta as any).env?.BASE_URL || './'}logo.svg`; }} />
               <div>
                 <h1 className="text-xl font-extrabold text-emerald-950 dark:text-emerald-400 tracking-wide">छत्तीसगढ़ शासन / Govt of Chhattisgarh</h1>
                 <h2 className="text-sm font-bold text-slate-700 dark:text-slate-300">राजस्व एवं आपदा प्रबंधन विभाग (Bhuiyan Portal Sync)</h2>

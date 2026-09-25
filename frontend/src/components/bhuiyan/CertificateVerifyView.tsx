@@ -54,10 +54,10 @@ export const CertificateVerifyView: React.FC<CertificateVerifyViewProps> = ({
 
         <div className="flex items-center space-x-3">
           <img
-            src="/logo.png"
-            onError={(e) => { (e.target as HTMLImageElement).src = '/logo.svg'; }}
+            src={`${(import.meta as any).env?.BASE_URL || './'}logo.png`}
+            onError={(e) => { (e.target as HTMLImageElement).src = `${(import.meta as any).env?.BASE_URL || './'}logo.svg`; }}
             alt="BHOOMI SETU"
-            className="w-12 h-12 rounded-2xl object-cover shadow-lg border border-emerald-500/30"
+            className="w-12 h-12 rounded-2xl object-contain bg-slate-900 p-0.5 shadow-lg border border-emerald-500/30"
           />
           <div>
             <h1 className="text-xl font-black text-white tracking-tight">BHUMISETU</h1>

@@ -29,9 +29,10 @@ export const SplashLoader: React.FC<{ onComplete: () => void }> = ({ onComplete 
         <div className="relative">
           <div className="absolute inset-0 rounded-3xl bg-emerald-500/20 blur-xl animate-pulse" />
           <img
-            src={`${import.meta.env.BASE_URL}logo.svg`}
+            src={`${import.meta.env.BASE_URL}logo.png`}
             alt="BHOOMI SETU Emblem"
             className="w-24 h-24 rounded-3xl object-contain bg-slate-900 p-2 shadow-2xl border-2 border-emerald-500/50 animate-emblem-pulse relative z-10"
+            onError={(e: any) => { e.target.src = `${import.meta.env.BASE_URL}logo.svg`; }}
           />
         </div>
         <div className="text-center space-y-1 z-10">
