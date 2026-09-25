@@ -35,12 +35,8 @@ export const MuavjaModule: React.FC = () => {
 
   const fetchMlMetrics = async () => {
     try {
-      const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000';
-      const res = await fetch(`${API_BASE_URL}/api/v1/detect/metrics`);
-      if (res.ok) {
-        const data = await res.json();
-        setMlMetrics(data);
-      }
+      const data = await api.getMuavjaMetrics();
+      setMlMetrics(data);
     } catch (err) {
       console.error('Failed to fetch ML metrics', err);
     }
@@ -85,20 +81,7 @@ export const MuavjaModule: React.FC = () => {
     setExportingPdf(true);
     showToast("Generating Muavja Compensation Audit PDF...", "info");
     try {
-      const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000';
-      const res = await fetch(`${API_BASE_URL}/api/v1/readymap/export?export_format=pdf`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(selectedParcelIds)
-      });
-
-      if (!res.ok) throw new Error("PDF export failed");
-      const blob = await res.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `BhoomiSetu_Muavja_Compensation_Report.pdf`;
-      a.click();
+      await api.exportMuavjaPDF(selectedParcelIds);
       showToast("Muavja PDF downloaded successfully!", "success");
     } catch (err) {
       console.error('PDF export failed', err);

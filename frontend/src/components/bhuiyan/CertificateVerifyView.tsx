@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldCheck, ShieldAlert, CheckCircle2, FileText, QrCode, ArrowLeft } from 'lucide-react';
+import { api } from '../../services/api';
 
 interface CertificateVerifyViewProps {
   hashParam?: string;
@@ -24,12 +25,10 @@ export const CertificateVerifyView: React.FC<CertificateVerifyViewProps> = ({
     if (!hashVal.trim()) return;
     setLoading(true);
     try {
-      const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000';
-      const res = await fetch(`${API_BASE_URL}/api/v1/certificates/verify/${encodeURIComponent(hashVal.trim())}`);
-      const data = await res.json();
+      const data = await api.verifyCertificate(hashVal);
       setResult(data);
     } catch (err) {
-      setResult({ verified: false, message: "Server network error during verification." });
+      setResult({ verified: false, message: "Verification service temporarily offline." });
     } finally {
       setLoading(false);
     }

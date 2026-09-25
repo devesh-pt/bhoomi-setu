@@ -23,13 +23,7 @@ export const RevenueCourtView: React.FC<RevenueCourtViewProps> = ({ onNavigate, 
     setLoading(true);
     setError(null);
     try {
-      const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000';
-      const url = filterDistrict !== 'ALL'
-        ? `${API_BASE_URL}/api/v1/court/cases?district=${encodeURIComponent(filterDistrict)}`
-        : `${API_BASE_URL}/api/v1/court/cases`;
-      const res = await fetch(url);
-      if (!res.ok) throw new Error("Failed to fetch revenue court cases");
-      const data = await res.json();
+      const data = await api.getCourtCases(filterDistrict);
       const items = data.items || [];
       setCases(items);
       
@@ -38,7 +32,7 @@ export const RevenueCourtView: React.FC<RevenueCourtViewProps> = ({ onNavigate, 
       }
     } catch (err: any) {
       console.error(err);
-      setError("Unable to load revenue court records from server. Please check backend connection.");
+      setError("Revenue Court service is temporarily unavailable.");
     } finally {
       setLoading(false);
     }

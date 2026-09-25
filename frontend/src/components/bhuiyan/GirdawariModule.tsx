@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Calendar, UserCheck, Sprout, BarChart2 } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import { api } from '../../services/api';
 
 interface GirdawariModuleProps {
   isOpen: boolean;
@@ -19,15 +20,7 @@ export const GirdawariModule: React.FC<GirdawariModuleProps> = ({
   useEffect(() => {
     if (isOpen && parcelId) {
       setLoading(true);
-      const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000';
-      const token = localStorage.getItem('access_token');
-      fetch(`${API_BASE_URL}/api/v1/land/girdawari/${parcelId}`, {
-        headers: {
-          'Content-Type': 'application/json',
-          ...(token ? { Authorization: `Bearer ${token}` } : {})
-        }
-      })
-        .then((res) => res.json())
+      api.getGirdawariData(parcelId)
         .then((resData) => setData(resData))
         .catch(() => setData(null))
         .finally(() => setLoading(false));

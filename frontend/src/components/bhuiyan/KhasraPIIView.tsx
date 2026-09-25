@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, FileText, Download, ShieldCheck, MapPin, Trees, Droplet, User, Calendar } from 'lucide-react';
+import { api } from '../../services/api';
 
 interface KhasraPIIViewProps {
   isOpen: boolean;
@@ -19,15 +20,7 @@ export const KhasraPIIView: React.FC<KhasraPIIViewProps> = ({
   useEffect(() => {
     if (isOpen && parcelId) {
       setLoading(true);
-      const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000';
-      const token = localStorage.getItem('access_token');
-      fetch(`${API_BASE_URL}/api/v1/land/pii/${parcelId}`, {
-        headers: {
-          'Content-Type': 'application/json',
-          ...(token ? { Authorization: `Bearer ${token}` } : {})
-        }
-      })
-        .then((res) => res.json())
+      api.getKhasraPIIData(parcelId)
         .then((resData) => setData(resData))
         .catch(() => setData(null))
         .finally(() => setLoading(false));

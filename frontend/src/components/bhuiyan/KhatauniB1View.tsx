@@ -22,26 +22,12 @@ export const KhatauniB1View: React.FC<KhatauniB1ViewProps> = ({
   useEffect(() => {
     if (isOpen && khataNo) {
       setLoading(true);
-      fetchWithAuth(`/api/v1/land/b1/${encodeURIComponent(khataNo)}?district=${encodeURIComponent(district)}`)
-        .then((res) => res.json())
+      api.getKhatauniB1Data(khataNo, district)
         .then((resData) => setData(resData))
         .catch(() => setData(null))
         .finally(() => setLoading(false));
     }
   }, [isOpen, khataNo, district]);
-
-  if (!isOpen) return null;
-
-  async function fetchWithAuth(endpoint: string) {
-    const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000';
-    const token = localStorage.getItem('access_token');
-    return fetch(`${API_BASE_URL}${endpoint}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        ...(token ? { Authorization: `Bearer ${token}` } : {})
-      }
-    });
-  }
 
   const handleDownloadPdf = async () => {
     try {

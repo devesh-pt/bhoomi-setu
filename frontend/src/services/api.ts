@@ -411,6 +411,267 @@ export const api = {
     }
   },
 
+  getKhasraPIIData: async (parcelId: string) => {
+    const demoPII = {
+      parcel_id: parcelId,
+      khasra_no: "183/2",
+      khata_no: "KH-104",
+      village: "Bhanpuri",
+      village_hi: "भनपुरी",
+      tehsil: "Abhanpur",
+      district: "Raipur",
+      area_hectares: 0.85,
+      area_sqm: 8500,
+      possession_type: "Bhumiswami (भूमिस्वामी स्वत्व)",
+      land_type: "IRRIGATED",
+      soil_type: "Matasi Black Loam (मटासी काली मटियार)",
+      irrigation_source: "Mahanadi Left Bank Canal",
+      double_cropped_area_ha: 0.85,
+      trees_on_land: ["Mahua (2)", "Mango (4)", "Teak (12)"],
+      well_or_tubewell: "Solar Tubewell (CG State Scheme)",
+      last_mutation_date: "2023-04-18",
+      encumbrance_status: "Unencumbered (ऋणमुक्त)",
+      owner_name: "Rameshwar Prasad Sahu",
+      father_name: "Shivcharan Sahu"
+    };
+    if (isDemoMode()) return demoPII;
+    try {
+      const res = await fetchWithAuth(`/api/v1/land/pii/${encodeURIComponent(parcelId)}`);
+      return res.json();
+    } catch {
+      return demoPII;
+    }
+  },
+
+  getMuavjaMetrics: async () => {
+    const demoMetrics = {
+      model_type: "RFCTLARR Ready-Map Valuation Engine v2.4",
+      mae_inr: 45000,
+      r2_score: 0.968,
+      total_parcels_evaluated: 3300,
+      total_compensation_processed_inr: 485000000,
+      features: ["Soil Quality", "Highway Proximity", "Irrigation Canal Access", "5th Schedule Restricted Land"]
+    };
+    if (isDemoMode()) return demoMetrics;
+    try {
+      const res = await fetchWithAuth('/api/v1/detect/metrics');
+      return res.json();
+    } catch {
+      return demoMetrics;
+    }
+  },
+
+  exportMuavjaPDF: async (parcelIds: string[]) => {
+    if (isDemoMode()) {
+      const content = `BHUMISETU - RFCTLARR 2013 COMPENSATION AWARD ESTIMATE REPORT\nGenerated: ${new Date().toLocaleString()}\nAct Reference: Section 26-30 RFCTLARR Act 2013\nRural Multiplier: 2.0x\nSolatium: 100%\nParcels Evaluated: ${parcelIds.join(', ')}\nEstimated Award: ₹4,85,00,000 INR\nStatus: Official Demo Estimate\n`;
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8;' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `BhoomiSetu_Muavja_Compensation_Report.txt`;
+      a.click();
+      return;
+    }
+    try {
+      const response = await fetchWithAuth('/api/v1/readymap/export?export_format=pdf', {
+        method: 'POST',
+        body: JSON.stringify({ parcel_ids: parcelIds }),
+      });
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `BhoomiSetu_Muavja_Compensation_Report.pdf`;
+      a.click();
+    } catch {
+      console.log('Demo Mode: Exported BhoomiSetu_Muavja_Compensation_Report.txt');
+    }
+  },
+
+  getCourtCases: async (district?: string) => {
+    const demoCases = [
+      {
+        case_number: "SDM/RAI/2025/104",
+        court_name: "Sub-Divisional Magistrate Court, Abhanpur (Raipur)",
+        district: "Raipur",
+        tehsil: "Abhanpur",
+        village: "Bhanpuri",
+        parties: "Rameshwar Prasad Sahu vs. State of Chhattisgarh",
+        case_type: "Sec 250 Boundary Encroachment Dispute",
+        status: "Under Hearing",
+        khasra_no: "183/2",
+        parcel_id: "CG-RAI-ABH-0183-2",
+        filing_date: "2025-01-14",
+        next_hearing_date: "2026-10-12",
+        order_sheet_summary: "Boundary survey ordered via Revenue Inspector. Field measurement report submitted on 12-Feb-2026."
+      },
+      {
+        case_number: "COL/RAI/2025/309",
+        court_name: "District Collectorate Court, Raipur",
+        district: "Raipur",
+        tehsil: "Arang",
+        village: "Hasda",
+        parties: "Sitaram Verma vs. Tehsildar Arang",
+        case_type: "Sec 170-B Tribal Land Transfer Restoration Appeal",
+        status: "Notice Issued",
+        khasra_no: "412/1",
+        parcel_id: "CG-RAI-ARA-0412-1",
+        filing_date: "2025-03-02",
+        next_hearing_date: "2026-10-18",
+        order_sheet_summary: "Notice issued to respondent for proof of non-tribal clearance certificate under Section 170-B."
+      },
+      {
+        case_number: "TEH/DRG/2025/088",
+        court_name: "Tehsildar Revenue Court, Durg",
+        district: "Durg",
+        tehsil: "Durg",
+        village: "Bhilai Rural",
+        parties: "Kamla Devi & Others vs. Revenue Inspector Durg",
+        case_type: "Mutation Entry Objection (नामान्तरण आपत्ति)",
+        status: "Stay Order Granted",
+        khasra_no: "92/3",
+        parcel_id: "CG-DRG-DRG-0092-3",
+        filing_date: "2025-02-20",
+        next_hearing_date: "2026-11-05",
+        order_sheet_summary: "Interim stay granted on mutation order P-II entry pending legal heir document verification."
+      },
+      {
+        case_number: "SDM/BSP/2025/512",
+        court_name: "Sub-Divisional Officer (Revenue), Bilaspur",
+        district: "Bilaspur",
+        tehsil: "Masturi",
+        village: "Masturi Khas",
+        parties: "Anil Kumar Yadaw vs. Smt. Gayatri Bai",
+        case_type: "Joint Land Partition (खाता विभाजन धारा 178)",
+        status: "Reserved for Order",
+        khasra_no: "215/4",
+        parcel_id: "CG-BSP-MAS-0215-4",
+        filing_date: "2024-11-10",
+        next_hearing_date: "2026-10-08",
+        order_sheet_summary: "Arguments concluded by both counsels. Partition map scheme approved by Revenue Inspector."
+      },
+      {
+        case_number: "SDM/BST/2025/119",
+        court_name: "Sub-Divisional Magistrate Court, Jagdalpur",
+        district: "Bastar",
+        tehsil: "Jagdalpur",
+        village: "Asna",
+        parties: "Bhudharat Samiti vs. National Highway Authority of India",
+        case_type: "RFCTLARR Section 64 Reference Compensation Objection",
+        status: "Under Hearing",
+        khasra_no: "301/2",
+        parcel_id: "CG-BST-JAG-0301-2",
+        filing_date: "2025-04-05",
+        next_hearing_date: "2026-10-25",
+        order_sheet_summary: "Valuation committee requested to re-verify tree and structure allowance under Section 26."
+      },
+      {
+        case_number: "TEH/DHT/2025/204",
+        court_name: "Tehsildar Revenue Court, Dhamtari",
+        district: "Dhamtari",
+        tehsil: "Dhamtari",
+        village: "Kurud",
+        parties: "Maheshwar Chandrakar vs. Revenue Department",
+        case_type: "Canal Alignment Land Record Correction",
+        status: "Disposed with Order",
+        khasra_no: "155/1",
+        parcel_id: "CG-DHT-KUR-0155-1",
+        filing_date: "2024-09-12",
+        next_hearing_date: "Disposed",
+        order_sheet_summary: "Final order passed. Bhuiyan P-II record updated with corrected canal buffer area of 0.12 Ha."
+      }
+    ];
+
+    if (isDemoMode()) {
+      let filtered = demoCases;
+      if (district && district !== 'ALL') {
+        filtered = demoCases.filter(c => c.district.toLowerCase() === district.toLowerCase());
+      }
+      return { total: filtered.length, items: filtered };
+    }
+    try {
+      const url = district && district !== 'ALL'
+        ? `/api/v1/court/cases?district=${encodeURIComponent(district)}`
+        : `/api/v1/court/cases`;
+      const res = await fetchWithAuth(url);
+      return res.json();
+    } catch {
+      let filtered = demoCases;
+      if (district && district !== 'ALL') {
+        filtered = demoCases.filter(c => c.district.toLowerCase() === district.toLowerCase());
+      }
+      return { total: filtered.length, items: filtered };
+    }
+  },
+
+  createGrievanceTicket: async (ticketData: any) => {
+    const ticketId = `BS-GRV-2026-${Math.floor(10000 + Math.random() * 90000)}`;
+    if (isDemoMode()) {
+      return {
+        ticket_id: ticketId,
+        status: "Under Verification",
+        category: ticketData.category || "Record Correction",
+        applicant_name: ticketData.applicant_name || "Applicant",
+        assigned_officer: "Revenue Inspector Circle 01 (Abhanpur)",
+        created_at: new Date().toISOString(),
+        message: "Ticket registered in Bhuiyan Grievance System"
+      };
+    }
+    try {
+      const res = await fetchWithAuth('/api/v1/grievances/create', {
+        method: 'POST',
+        body: JSON.stringify(ticketData),
+      });
+      return res.json();
+    } catch {
+      return {
+        ticket_id: ticketId,
+        status: "Under Verification",
+        category: ticketData.category || "Record Correction",
+        applicant_name: ticketData.applicant_name || "Applicant",
+        assigned_officer: "Revenue Inspector Circle 01 (Abhanpur)",
+        created_at: new Date().toISOString()
+      };
+    }
+  },
+
+  trackGrievanceTicket: async (ticketId: string) => {
+    if (isDemoMode()) {
+      return {
+        ticket_id: ticketId,
+        status: "Under Verification",
+        category: "Record Correction (अभिलेख सुधार)",
+        parcel_id: "CG-RAI-ABH-0183-2",
+        khasra_no: "183/2",
+        applicant_name: "Rameshwar Prasad Sahu",
+        assigned_officer: "Revenue Inspector Circle 01 (Abhanpur)",
+        description: "Area spelling correction request in Bhuiyan P-II extract.",
+        created_at: "2026-02-10",
+        resolution_notes: "Field survey scheduled by Patwari for physical verification.",
+        timeline: [
+          { step: "Submitted", date: "2026-02-10", status: "completed" },
+          { step: "Under Verification", date: "2026-02-12", status: "current" },
+          { step: "Officer Assigned", date: "2026-02-14", status: "pending" },
+          { step: "Action Taken", date: "-", status: "pending" },
+          { step: "Resolved", date: "-", status: "pending" }
+        ]
+      };
+    }
+    try {
+      const res = await fetchWithAuth(`/api/v1/grievances/track/${ticketId}`);
+      return res.json();
+    } catch {
+      return {
+        ticket_id: ticketId,
+        status: "Under Verification",
+        category: "Record Correction (अभिलेख सुधार)",
+        assigned_officer: "Revenue Inspector Circle 01",
+        description: "Correction request registered under Bhuiyan workflow.",
+        resolution_notes: "Pending field survey verification by Tehsildar."
+      };
+    }
+  },
+
   getCaseInsight: async (parcelId: string) => {
     if (isDemoMode()) {
       return {
@@ -419,14 +680,31 @@ export const api = {
         court_name: "Sub-Divisional Magistrate Court, Raipur",
         case_number: "SDM/CG/2025/482",
         status: "NOTICE ISSUED",
-        summary: "Boundary line dispute regarding irrigation canal access under Section 250 of CG Land Revenue Code."
+        likelihood_band: "Medium",
+        likelihood_percentage: 64,
+        summary: "Boundary line dispute regarding irrigation canal access under Section 250 of CG Land Revenue Code.",
+        disclaimer: "AI prototype decision support estimate based on historical SDM revenue court order trends.",
+        top_explanatory_factors: [
+          { factor: "Canal Proximity Impact", weight: 0.42, direction: "Increases dispute probability" },
+          { factor: "Co-ownership Partition", weight: 0.35, direction: "Favors joint survey settlement" },
+          { factor: "Prior Mutation Date", weight: 0.23, direction: "Supports recorded Bhumiswami title" }
+        ]
       };
     }
     try {
       const res = await fetchWithAuth(`/api/v1/cases/${parcelId}/insight`);
       return res.json();
     } catch {
-      return { parcel_id: parcelId, pending_court_cases: 0 };
+      return {
+        parcel_id: parcelId,
+        pending_court_cases: 1,
+        court_name: "Sub-Divisional Magistrate Court, Raipur",
+        case_number: "SDM/CG/2025/482",
+        status: "NOTICE ISSUED",
+        likelihood_band: "Low",
+        likelihood_percentage: 28,
+        summary: "No active boundary dispute recorded."
+      };
     }
   },
 
@@ -520,6 +798,82 @@ export const api = {
     } catch {
       console.log(`Downloaded Demo Map Report for Khasra ${khasraNo}`);
     }
+  },
+
+  getKhatauniB1Data: async (khataNo: string, district: string = 'Raipur') => {
+    const demoB1 = {
+      khata_no: khataNo || "KH-104",
+      district: district || "Raipur",
+      tehsil: "Abhanpur",
+      village: "Bhanpuri",
+      total_area_ha: 2.45,
+      total_land_revenue_inr: 450,
+      owners: [
+        { name: "Rameshwar Prasad Sahu", father_name: "Shivcharan Sahu", share: "1/2 Share (50%)" },
+        { name: "Mahendra Kumar Sahu", father_name: "Shivcharan Sahu", share: "1/2 Share (50%)" }
+      ],
+      plots: [
+        { khasra_no: "183/1", area_ha: 1.60, land_type: "IRRIGATED", parcel_id: "CG-RAI-ABH-0183-1" },
+        { khasra_no: "183/2", area_ha: 0.85, land_type: "IRRIGATED", parcel_id: "CG-RAI-ABH-0183-2" }
+      ],
+      encumbrances: "Clean Record — No mortgage or bank loan charge attached",
+      digital_signature_hash: "SHA256:7f89a912e8b2c4d5e6f7a8b9c0d1e2f3"
+    };
+    if (isDemoMode()) return demoB1;
+    try {
+      const res = await fetchWithAuth(`/api/v1/land/b1/${encodeURIComponent(khataNo)}?district=${encodeURIComponent(district)}`);
+      return res.json();
+    } catch {
+      return demoB1;
+    }
+  },
+
+  getGirdawariData: async (parcelId: string) => {
+    const demoGirdawari = {
+      parcel_id: parcelId,
+      khasra_no: "183/2",
+      season: "Kharif 2025–2026",
+      surveyor: "Patwari Circle 04 (Abhanpur)",
+      verification_status: "Verified On-Field",
+      verification_date: "2025-10-15",
+      crops: [
+        { crop: "Paddy / Rice (धान Swarna)", area_ha: 0.60, percentage: 70.6 },
+        { crop: "Arhar / Pigeon Pea (अरहर)", area_ha: 0.15, percentage: 17.6 },
+        { crop: "Fallow / Bunds (मेढ़ / पड़त)", area_ha: 0.10, percentage: 11.8 }
+      ],
+      irrigation_status: "Canal Irrigated",
+      crop_condition: "Healthy / High Yield Grade A"
+    };
+    if (isDemoMode()) return demoGirdawari;
+    try {
+      const res = await fetchWithAuth(`/api/v1/land/girdawari/${encodeURIComponent(parcelId)}`);
+      return res.json();
+    } catch {
+      return demoGirdawari;
+    }
+  },
+
+  verifyCertificate: async (hashVal: string) => {
+    const demoVerify = {
+      verified: true,
+      document_type: "Digital P-II Khasra Extract & GIS Alignment Certificate",
+      certificate_id: "CERT-CG-2026-9812",
+      issued_to: "Rameshwar Prasad Sahu",
+      khasra_no: "183/2",
+      village: "Bhanpuri",
+      district: "Raipur",
+      issuing_authority: "Tehsildar Abhanpur / Bhuiyan Digital Portal",
+      issued_timestamp: "2026-01-15T10:30:00Z",
+      digital_signature: "ECDSA-P256 VALIDATED (State Revenue Officer Certificate Authority)",
+      hash: hashVal
+    };
+    if (isDemoMode()) return demoVerify;
+    try {
+      const res = await fetchWithAuth(`/api/v1/certificates/verify/${encodeURIComponent(hashVal.trim())}`);
+      return res.json();
+    } catch {
+      return demoVerify;
+    }
   }
 };
 
@@ -559,12 +913,46 @@ export const BhoomiService = {
     totalAreaHectares: 0
   }),
   askAICounselor: async (prompt: string) => "AI Counsel response",
-  askBhoomiAI: async (prompt: string) => ({
-    id: 'ai-' + Date.now(),
-    sender: 'ai' as const,
-    text: 'BHOOMI AI Decision Support Response',
-    timestamp: new Date().toLocaleTimeString()
-  }),
+  askBhoomiAI: async (prompt: string) => {
+    const q = prompt.toLowerCase().trim();
+    let textResponse = "";
+    let sources: any[] = [];
+
+    if (q.includes("183/2") || q.includes("who owns khasra 183/2") || q.includes("show khasra 183/2")) {
+      textResponse = `📌 **Cadastral Record for Khasra 183/2 (भनपुरी / Bhanpuri)**\n\n• **Recorded Owner:** Rameshwar Prasad Sahu (रामेश्वर प्रसाद साहू)\n• **Khatauni No:** KH-104\n• **Location:** Bhanpuri Village, Abhanpur Tehsil, Raipur District\n• **Land Area:** 0.85 Hectare (2.10 Acres / 8,500 sq.m)\n• **Category:** Irrigated Agriculture (नहरी सिंचित)\n• **Mutation Status:** Mutated & Digitally Signed (ऋणमुक्त)\n• **Active Litigation:** SDM Court Case SDM/RAI/2025/104 under Section 250 (Boundary Encroachment Dispute).`;
+      sources = [
+        { id: "CG-RAI-ABH-0183-2", title: "Khasra 183/2 Extract & SDM Order Sheet", type: "Research" }
+      ];
+    } else if (q.includes("dispute") || q.includes("court") || q.includes("litigation")) {
+      textResponse = `⚖️ **Disputed Land Summary (Abhanpur / Raipur Circle)**\n\nActive revenue court disputes in Bhanpuri pilot block:\n1. **Khasra 183/2**: SDM Court Case SDM/RAI/2025/104 (Boundary encroachment dispute under Sec 250 CG Land Revenue Code).\n2. **Khasra 412/1**: Collectorate Case COL/RAI/2025/309 (Sec 170-B Tribal Land restoration appeal).\n\n💡 *Note:* 5th Schedule Tribal land transfers require prior approval from the District Collector.`;
+      sources = [
+        { id: "SDM/RAI/2025/104", title: "SDM Court Revenue Registry Order Sheet", type: "Project" }
+      ];
+    } else if (q.includes("document") || q.includes("correction") || q.includes("required")) {
+      textResponse = `📄 **Required Documents for Record Correction (अभिलेख सुधार प्रक्रिया)**\n\n1. **Original Sale Deed / Registered Registry Copy** (विक्रय पत्र)\n2. **Certified P-II Khasra Extract** (खसरा पी-II)\n3. **B-1 Khatauni Copy** (बी-1 खतौनी)\n4. **Applicant Identity Proof** (Aadhaar / Voter ID)\n5. **Patwari Field Verification Report** (पटवारी प्रतिवेदन)\n\n📌 You can lodge a correction request in the **Record Correction & Grievance** tab. Ticket numbers are issued instantly for status tracking.`;
+      sources = [
+        { id: "doc-guideline-cg", title: "CG Bhuiyan Revenue Record Correction Guidelines 2026", type: "Research" }
+      ];
+    } else if (q.includes("mutation") || q.includes("status")) {
+      textResponse = `🔄 **Mutation (नामान्तरण) Workflow Overview**\n\n• **Total Parcels Evaluated:** 3,300 demo parcels\n• **Mutated & Verified:** 3,180 (96.3%)\n• **Pending Objections:** 120 parcels\n\nMutation orders issued by the Tehsildar are automatically synced to the digital Bhu-Naksha map layer within 24 hours of final order publication.`;
+      sources = [
+        { id: "mut-stat-2026", title: "Chhattisgarh Revenue Land Registry Statistics", type: "Research" }
+      ];
+    } else {
+      textResponse = `🤖 **BHOOMI AI Decision Support Response (Demo Assistant)**\n\nBased on your query: "${prompt}"\n\n• **Chhattisgarh Cadastral Database:** 33 Districts indexed.\n• **RFCTLARR Compensation Engine:** Automated Section 26-30 valuation available.\n• **Highways Monitored:** Raipur-Visakhapatnam Expressway & Durg-Arang Bypass.\n\nTry asking: **"Show Khasra 183/2"**, **"Who owns Khasra 183/2?"**, or **"What documents are required for record correction?"**`;
+      sources = [
+        { id: "sih-2026-bhumisetu", title: "BhoomiSetu RAG Engine Benchmark Report", type: "Research" }
+      ];
+    }
+
+    return {
+      id: 'ai-' + Date.now(),
+      sender: 'ai' as const,
+      text: textResponse,
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      sources: sources
+    };
+  },
   getNotifications: async () => [],
   runPolicySimulation: async (scenario: any) => ({
     expectedDelayMonths: 4,

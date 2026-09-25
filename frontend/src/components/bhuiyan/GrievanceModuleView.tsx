@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { AlertCircle, CheckCircle2, Send, Search, HelpCircle, FileCheck } from 'lucide-react';
+import { AlertCircle, CheckCircle2, Send, Search, HelpCircle, FileCheck, Clock, UserCheck } from 'lucide-react';
+import { api } from '../../services/api';
 
 export const GrievanceModuleView: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'create' | 'track'>('create');
@@ -17,34 +18,17 @@ export const GrievanceModuleView: React.FC = () => {
   const [ticketDetails, setTicketDetails] = useState<any | null>(null);
   const [loading, setLoading] = useState(false);
 
-  async function fetchWithAuth(endpoint: string, options: RequestInit = {}) {
-    const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000';
-    const token = localStorage.getItem('access_token');
-    return fetch(`${API_BASE_URL}${endpoint}`, {
-      ...options,
-      headers: {
-        'Content-Type': 'application/json',
-        ...(token ? { Authorization: `Bearer ${token}` } : {}),
-        ...options.headers
-      }
-    });
-  }
-
   const handleCreateSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetchWithAuth('/api/v1/grievances/create', {
-        method: 'POST',
-        body: JSON.stringify({
-          parcel_id: parcelId,
-          category: category,
-          applicant_name: applicantName,
-          applicant_phone: applicantPhone,
-          description: description
-        })
+      const data = await api.createGrievanceTicket({
+        parcel_id: parcelId,
+        category: category,
+        applicant_name: applicantName,
+        applicant_phone: applicantPhone,
+        description: description
       });
-      const data = await res.json();
       setCreatedTicket(data.ticket_id);
       setTicketInput(data.ticket_id);
     } catch (err) {
@@ -58,8 +42,7 @@ export const GrievanceModuleView: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetchWithAuth(`/api/v1/grievances/track/${ticketInput}`);
-      const data = await res.json();
+      const data = await api.trackGrievanceTicket(ticketInput);
       setTicketDetails(data);
     } catch (err) {
       setTicketDetails(null);
