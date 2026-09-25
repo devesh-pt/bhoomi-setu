@@ -161,27 +161,37 @@ export const api = {
     if (isDemoMode()) {
       const data = await fetchDemoJson('parcels.json');
       const items: any[] = data?.items || [];
-      // Pick parcel closest to coordinates
       let closest = items[0];
       let minDist = Infinity;
       for (const p of items) {
-        if (p.geometry && p.geometry.coordinates) {
-          const coords = p.geometry.coordinates[0]?.[0] || [lng, lat];
-          const dist = Math.hypot(coords[1] - lat, coords[0] - lng);
+        let pLat = p.centroid_lat;
+        let pLng = p.centroid_lng;
+        if (!pLat && p.geojson_geometry?.coordinates?.[0]?.[0]) {
+          pLng = p.geojson_geometry.coordinates[0][0][0];
+          pLat = p.geojson_geometry.coordinates[0][0][1];
+        }
+        if (pLat && pLng) {
+          const dist = Math.hypot(pLat - lat, pLng - lng);
           if (dist < minDist) {
             minDist = dist;
             closest = p;
           }
         }
       }
-      return closest || null;
+      return {
+        parcel: closest || items[0],
+        forest: null,
+        district: { district: closest?.district || 'Raipur' }
+      };
     }
     try {
-      const res = await fetchWithAuth(`/api/identify?lat=${lat}&lng=${lng}&zoom=${zoom}`);
-      return res.json();
+      const res = await fetchWithAuth(`/api/v1/parcels/identify?lat=${lat}&lng=${lng}&zoom=${zoom}`);
+      const data = await res.json();
+      return data.parcel ? data : { parcel: data };
     } catch {
       const data = await fetchDemoJson('parcels.json');
-      return data?.items?.[0] || null;
+      const items: any[] = data?.items || [];
+      return { parcel: items[0], forest: null, district: { district: 'Raipur' } };
     }
   },
 

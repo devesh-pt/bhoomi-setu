@@ -258,18 +258,18 @@ export const LandMapModule: React.FC = () => {
   // On Tap Anywhere Handler
   const handleMapTap = useCallback(async (lat: number, lng: number, zoom: number) => {
     setMapZoom(zoom);
-    if (zoom < 14) {
-      setToastMessage("Zoom in to tap land (Minimum zoom level 14)");
-      setTimeout(() => setToastMessage(null), 3500);
-      return;
-    }
-
     setIdentifying(true);
     try {
       const data = await api.identify(lat, lng, zoom).catch(() => null);
       if (data) {
-        if (data.parcel) {
-          setSelectedParcel(data.parcel);
+        const p = data.parcel || (data.khasra_no ? data : null);
+        if (p) {
+          setSelectedParcel(p);
+          if (p.centroid_lat && p.centroid_lng) {
+            setMapCenter([p.centroid_lat, p.centroid_lng]);
+            setMapZoom(Math.max(zoom, 16));
+          }
+          showToast(`Selected Khasra No. ${p.khasra_no} (${p.owner_name})`, "info");
         }
         if (data.forest) {
           setSelectedForest(data.forest);
@@ -285,7 +285,7 @@ export const LandMapModule: React.FC = () => {
     } finally {
       setIdentifying(false);
     }
-  }, []);
+  }, [showToast]);
 
   // Handle Location Selector Change
   const handleSelectLocation = (district: string, tehsil: string, village: string, vObj?: any) => {
@@ -359,31 +359,23 @@ export const LandMapModule: React.FC = () => {
     }
   };
 
-  // Filter display parcels: Only draw when needed (village selected, khasra searched, parcel clicked, or toggled ON)
+  // Filter display parcels: Keep parcels rendered and touchable across all zoom levels
   const displayParcels = useMemo(() => {
     const safeParcels = normalizeParcels(parcels);
-
-    // Below zoom 15, do not draw parcel outlines unless selectedParcel is explicitly focused
-    if (mapZoom < 15 && !selectedParcel) {
-      return [];
-    }
-
     let list: any[] = [];
-    if (layerSettings.showParcels || selectedVillage || selectedParcel) {
-      if (selectedVillage) {
-        list = safeParcels.filter(
-          (p) => p.village?.toLowerCase() === selectedVillage.toLowerCase()
-        );
-      } else {
-        list = [...safeParcels];
-      }
+    if (selectedVillage) {
+      list = safeParcels.filter(
+        (p) => p.village?.toLowerCase() === selectedVillage.toLowerCase()
+      );
     }
-
+    if (list.length === 0) {
+      list = [...safeParcels];
+    }
     if (selectedParcel && !list.find((p) => p.parcel_id === selectedParcel.parcel_id)) {
       list.push(selectedParcel);
     }
     return list;
-  }, [parcels, selectedParcel, selectedVillage, mapZoom, layerSettings.showParcels]);
+  }, [parcels, selectedParcel, selectedVillage]);
 
   const safeHighways = useMemo(() => normalizeHighways(highways), [highways]);
   const safeForestAreas = useMemo(() => normalizeForestAreas(forestAreas), [forestAreas]);
