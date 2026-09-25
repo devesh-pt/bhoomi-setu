@@ -58,10 +58,13 @@ export const KhatauniB1View: React.FC<KhatauniB1ViewProps> = ({
               <FileText className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-white flex items-center gap-2">
+              <h2 className="text-lg font-bold text-white flex flex-wrap items-center gap-2">
                 <span>Khatauni (B-1) Land Record Extract</span>
-                <span className="px-2 py-0.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] rounded-full uppercase">
+                <span className="px-2 py-0.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] rounded-full uppercase font-bold">
                   Bhuiyan Form B-1
+                </span>
+                <span className="px-2 py-0.5 bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[10px] font-bold rounded-full uppercase">
+                  Demo Data - synthetic record, not an official document
                 </span>
               </h2>
               <p className="text-xs text-slate-400">Account Khatauni Number: <strong>{khataNo}</strong> | District {district}, Chhattisgarh</p>

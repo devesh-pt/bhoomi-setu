@@ -131,10 +131,10 @@ export const HighwaysModule: React.FC = () => {
             <span className="text-xs text-slate-400 font-medium">Intersected Parcels</span>
             <div className="flex items-baseline justify-between mt-2">
               <span className="text-3xl font-extrabold text-white">
-                {impactData.total_intersected_parcels}
+                {impactData.total_intersected_parcels ?? impactData.total_parcels_intersected ?? 0}
               </span>
               <span className="text-xs font-semibold text-slate-400">
-                {impactData.total_affected_area_ha} ha Total
+                {impactData.total_affected_area_ha ?? impactData.total_area_ha ?? 0} ha Total
               </span>
             </div>
           </div>

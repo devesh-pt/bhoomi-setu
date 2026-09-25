@@ -240,7 +240,7 @@ export const MuavjaModule: React.FC = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-800">
-              {compensationData?.parcels_breakdown?.map((p: any) => (
+              {(compensationData?.parcels_breakdown || compensationData?.breakdown || [])?.map((p: any) => (
                 <tr key={p.parcel_id} className="hover:bg-slate-800/40 transition">
                   <td className="p-2.5">
                     <input

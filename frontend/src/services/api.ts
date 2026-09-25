@@ -15,7 +15,9 @@ const demoCache: Record<string, any> = {};
 
 async function fetchDemoJson(fileName: string): Promise<any> {
   if (demoCache[fileName]) return demoCache[fileName];
-  const cleanPath = `${BASE_PATH}demo-data/${fileName}`.replace(/\/+/g, '/');
+  const basePath = (import.meta as any).env?.BASE_URL || '/';
+  const normalizedBase = basePath.endsWith('/') ? basePath : `${basePath}/`;
+  const cleanPath = `${normalizedBase}demo-data/${fileName}`;
   try {
     const res = await fetch(cleanPath);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -283,40 +285,48 @@ export const api = {
     if (isDemoMode()) {
       const parcelData = await fetchDemoJson('parcels.json');
       const allParcels: any[] = parcelData?.items || [];
-      const selected = allParcels.filter(p => parcelIds.includes(String(p.id))) ;
-      const targetParcels = selected.length > 0 ? selected : allParcels.slice(0, 3);
+      const selected = allParcels.filter(p => parcelIds.includes(String(p.parcel_id || p.id)));
+      const targetParcels = selected.length > 0 ? selected : allParcels.slice(0, 5);
       
       const breakdown = targetParcels.map(p => {
-        const area = p.area_ha || 0.6;
-        const ratePerHa = (p.market_value_inr || 2500000) / area;
-        const marketVal = area * ratePerHa;
-        const baseComp = marketVal * ruralMultiplier;
-        const solatium = baseComp * 1.0;
-        const assets = area * 250000;
-        const total = baseComp + solatium + assets;
+        const area = p.area_hectares || p.area_ha || 0.6;
+        const ratePerHa = 15.0; // 15 Lakhs / ha
+        const marketVal = Math.round(area * ratePerHa * 100) / 100;
+        const multipliedVal = Math.round(marketVal * ruralMultiplier * 100) / 100;
+        const solatium = multipliedVal; // 100% solatium
+        const assets = Math.round(area * 2.5 * 100) / 100;
+        const totalMuavja = Math.round((multipliedVal + solatium + assets) * 100) / 100;
         return {
-          parcel_id: p.id,
+          parcel_id: p.parcel_id || p.id,
           khasra_no: p.khasra_no,
           owner_name: p.owner_name,
-          village: p.village,
+          village: p.village || 'Bhanpuri',
           area_ha: area,
-          land_type: p.land_type,
-          market_value_inr: Math.round(marketVal),
-          base_compensation_inr: Math.round(baseComp),
-          solatium_inr: Math.round(solatium),
-          structure_allowance_inr: Math.round(assets),
-          total_award_inr: Math.round(total)
+          land_type: p.land_type || 'IRRIGATED',
+          base_market_rate_per_ha_lakhs: ratePerHa,
+          base_market_value_lakhs: marketVal,
+          location_multiplier: ruralMultiplier,
+          multiplied_market_value_lakhs: multipliedVal,
+          solatium_amount_lakhs: solatium,
+          asset_crop_allowance_lakhs: assets,
+          total_muavja_lakhs: totalMuavja,
+          is_synthetic: true
         };
       });
 
-      const totalAward = breakdown.reduce((acc, item) => acc + item.total_award_inr, 0);
+      const totalArea = Math.round(breakdown.reduce((acc, item) => acc + item.area_ha, 0) * 100) / 100;
+      const totalSolatium = Math.round(breakdown.reduce((acc, item) => acc + item.solatium_amount_lakhs, 0) * 100) / 100;
+      const grandTotal = Math.round(breakdown.reduce((acc, item) => acc + item.total_muavja_lakhs, 0) * 100) / 100;
 
       return {
         act_reference: "RFCTLARR Act, 2013 (Section 26-30)",
         rural_multiplier: ruralMultiplier,
         solatium_percentage: 100.0,
         total_parcels: breakdown.length,
-        total_compensation_inr: totalAward,
+        total_affected_area_ha: totalArea,
+        total_solatium_lakhs: totalSolatium,
+        grand_total_muavja_lakhs: grandTotal,
+        parcels_breakdown: breakdown,
         breakdown: breakdown
       };
     }
@@ -345,7 +355,7 @@ export const api = {
           `"${p.village}"`,
           `"${p.district}"`,
           `"${p.land_type}"`,
-          p.area_ha,
+          p.area_ha || p.area_hectares,
           Math.round((p.market_value_inr || 2500000) * 2.2)
         ].join(","));
       });
@@ -377,13 +387,29 @@ export const api = {
   analyzeForestImpact: async (polygon: any) => {
     if (isDemoMode()) {
       const stats = await fetchDemoJson('forest_stats.json');
+      const histLoss = stats?.historical_loss || [
+        { year: 2021, loss_ha: 18.2, afforestation_ha: 25.0 },
+        { year: 2022, loss_ha: 15.1, afforestation_ha: 28.5 },
+        { year: 2023, loss_ha: 14.0, afforestation_ha: 30.0 },
+        { year: 2024, loss_ha: 12.4, afforestation_ha: 35.8 }
+      ];
+
       return {
+        current_forest_cover_ha: 4.8,
         forest_area_intersected_ha: 4.8,
+        forest_cover_percentage: 18.5,
+        total_area_ha: 25.9,
+        projected_loss_ha: 3.2,
+        estimated_trees_affected: 1120,
+        estimated_carbon_impact_tons_co2: 464.0,
+        requires_forest_clearance: true,
+        clearance_warning_message: "Selected alignment intersects 4.8 ha of Udanti-Sitanadi Buffer Zone. Forest Clearance under Van Adhiniyam 1980 is REQUIRED prior to construction.",
+        historical_loss_series: histLoss,
+        historical_loss: histLoss,
         tree_density_percent: 78.5,
         canopy_cover_class: "DENSE",
         compensatory_afforestation_required_ha: 9.6,
-        npv_compensation_inr: 4800000,
-        historical_loss: stats?.historical_loss || []
+        npv_compensation_inr: 4800000
       };
     }
     try {
@@ -393,7 +419,7 @@ export const api = {
       });
       return res.json();
     } catch {
-      return { forest_area_intersected_ha: 4.8, tree_density_percent: 78.5 };
+      return { current_forest_cover_ha: 4.8, projected_loss_ha: 3.2, estimated_trees_affected: 1120, estimated_carbon_impact_tons_co2: 464.0, historical_loss_series: [] };
     }
   },
 
@@ -750,29 +776,46 @@ export const api = {
   },
 
   getDistricts: async () => {
-    if (isDemoMode()) {
-      const data = await fetchDemoJson('districts_hierarchy.json');
-      return Object.keys(data?.districts || {}).map(d => ({ district: d }));
+    const hierarchy = await api.getLocationHierarchy();
+    if (Array.isArray(hierarchy) && hierarchy.length > 0) {
+      return hierarchy.map((d: any) => ({ district: d.district }));
     }
-    try {
-      const res = await fetchWithAuth('/api/v1/districts');
-      return res.json();
-    } catch {
-      return [{ district: 'Raipur' }, { district: 'Durg' }, { district: 'Dhamtari' }];
-    }
+    return [{ district: 'Raipur' }, { district: 'Durg' }, { district: 'Dhamtari' }];
   },
 
   getLocationHierarchy: async () => {
+    const normalizeHierarchy = (data: any) => {
+      if (!data) return [];
+      if (Array.isArray(data)) return data;
+      if (data.districts && typeof data.districts === 'object') {
+        return Object.entries(data.districts).map(([dName, dVal]: [string, any]) => ({
+          district: dName,
+          division: dVal.division || 'Raipur',
+          tehsils: Object.entries(dVal.tehsils || {}).map(([tName, vList]: [string, any]) => ({
+            tehsil: tName,
+            villages: (Array.isArray(vList) ? vList : []).map((vName: string) => ({
+              village: vName,
+              centroid_lat: dName === 'Raipur' ? 21.272 : dName === 'Durg' ? 21.190 : 20.707,
+              centroid_lng: dName === 'Raipur' ? 81.650 : dName === 'Durg' ? 81.284 : 81.549
+            }))
+          }))
+        }));
+      }
+      return [];
+    };
+
     if (isDemoMode()) {
       const data = await fetchDemoJson('districts_hierarchy.json');
-      return data || { districts: {} };
+      return normalizeHierarchy(data);
     }
     try {
       const res = await fetchWithAuth('/api/v1/districts/hierarchy');
-      return res.json();
+      const data = await res.json();
+      const norm = normalizeHierarchy(data);
+      return norm.length > 0 ? norm : normalizeHierarchy(await fetchDemoJson('districts_hierarchy.json'));
     } catch {
       const data = await fetchDemoJson('districts_hierarchy.json');
-      return data || { districts: {} };
+      return normalizeHierarchy(data);
     }
   },
 
@@ -806,18 +849,22 @@ export const api = {
       district: district || "Raipur",
       tehsil: "Abhanpur",
       village: "Bhanpuri",
+      total_plots: 2,
+      total_area_hectares: 2.45,
       total_area_ha: 2.45,
+      annual_land_revenue_inr: 450,
       total_land_revenue_inr: 450,
-      owners: [
-        { name: "Rameshwar Prasad Sahu", father_name: "Shivcharan Sahu", share: "1/2 Share (50%)" },
-        { name: "Mahendra Kumar Sahu", father_name: "Shivcharan Sahu", share: "1/2 Share (50%)" }
+      recorded_owners: [
+        { name: "Rameshwar Prasad Sahu", father_husband_name: "Shivcharan Sahu", share_percentage: 50, caste_category: "OBC" },
+        { name: "Mahendra Kumar Sahu", father_husband_name: "Shivcharan Sahu", share_percentage: 50, caste_category: "OBC" }
       ],
       plots: [
-        { khasra_no: "183/1", area_ha: 1.60, land_type: "IRRIGATED", parcel_id: "CG-RAI-ABH-0183-1" },
-        { khasra_no: "183/2", area_ha: 0.85, land_type: "IRRIGATED", parcel_id: "CG-RAI-ABH-0183-2" }
+        { khasra_no: "183/1", area_hectares: 1.60, area_ha: 1.60, land_type: "IRRIGATED", parcel_id: "CG-RAI-ABH-0183-1", circle_rate: 1500000, soil_type: "Matasi (Loam)" },
+        { khasra_no: "183/2", area_hectares: 0.85, area_ha: 0.85, land_type: "IRRIGATED", parcel_id: "CG-RAI-ABH-0183-2", circle_rate: 1500000, soil_type: "Kanhar (Clay)" }
       ],
       encumbrances: "Clean Record — No mortgage or bank loan charge attached",
-      digital_signature_hash: "SHA256:7f89a912e8b2c4d5e6f7a8b9c0d1e2f3"
+      digital_signature_hash: "SHA256:7f89a912e8b2c4d5e6f7a8b9c0d1e2f3",
+      is_synthetic: true
     };
     if (isDemoMode()) return demoB1;
     try {

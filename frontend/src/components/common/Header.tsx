@@ -45,6 +45,16 @@ export const Header: React.FC<HeaderProps> = ({
   const { startDemo } = useDemo();
   const [showRoleDropdown, setShowRoleDropdown] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      onNavigate('/land-search');
+    } else if (onOpenCommandPalette) {
+      onOpenCommandPalette();
+    }
+  };
 
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === 'en' ? 'hi' : 'en');
@@ -89,17 +99,26 @@ export const Header: React.FC<HeaderProps> = ({
           className="w-8 h-8 rounded-xl object-contain bg-slate-900 p-0.5 lg:hidden border border-emerald-500/30 shrink-0"
           onError={(e: any) => { e.target.src = `${(import.meta as any).env?.BASE_URL || './'}logo.svg`; }}
         />
-        {/* Command Palette Trigger Input */}
-        <button
-          onClick={onOpenCommandPalette}
-          className="w-full pl-9 pr-4 py-2 bg-slate-950/80 border border-slate-800 rounded-xl text-xs font-medium text-slate-400 hover:text-slate-200 hover:border-slate-700 transition flex items-center justify-between relative group shadow-inner"
-        >
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-hover:text-emerald-400 transition" />
-          <span className="truncate pr-2">Search Khasra no, owner name, or run command...</span>
-          <span className="px-1.5 py-0.5 bg-slate-800 text-slate-400 text-[9px] rounded font-mono border border-slate-700 hidden sm:inline-flex items-center gap-0.5 shrink-0">
+        {/* Interactive Search Input Bar */}
+        <form onSubmit={handleSearchSubmit} className="w-full relative group flex items-center">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-emerald-400 transition pointer-events-none z-10" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => { if (onOpenCommandPalette && !searchQuery) onOpenCommandPalette(); }}
+            placeholder="Search Khasra no, owner name (उदा. 183/2, रामेश्वर)..."
+            className="w-full pl-9 pr-12 py-2 bg-slate-950/80 border border-slate-800 focus:border-emerald-500/80 rounded-xl text-xs font-medium text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-emerald-500/40 transition shadow-inner select-text"
+          />
+          <button
+            type="button"
+            onClick={onOpenCommandPalette}
+            className="absolute right-2 top-1/2 -translate-y-1/2 px-1.5 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-400 text-[9px] rounded font-mono border border-slate-700 hidden sm:inline-flex items-center gap-0.5 shrink-0 transition"
+            title="Open Command Palette (Cmd+K)"
+          >
             <Command className="w-2.5 h-2.5" /> K
-          </span>
-        </button>
+          </button>
+        </form>
       </div>
 
       {/* Right Action Icons & User Profile */}
